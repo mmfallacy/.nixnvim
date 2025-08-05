@@ -1,6 +1,7 @@
 {
   pkgs,
   mnw,
+  extras,
 }:
 mnw.lib.wrap pkgs {
   neovim = pkgs.neovim-unwrapped;
@@ -8,4 +9,5 @@ mnw.lib.wrap pkgs {
     vim.print("MNW")
   '';
 
+  plugins = import ./plugins.nix { inherit pkgs extras; };
 }
