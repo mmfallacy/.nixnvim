@@ -31,6 +31,7 @@
             neovim = import ./nix/packages/neovim.nix {
               inherit pkgs extras mnw;
             };
+            vimPlugins = import ./nix/vimPlugins { inherit pkgs; };
             default = neovim;
           };
         }
