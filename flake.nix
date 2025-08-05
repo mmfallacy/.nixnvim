@@ -20,6 +20,8 @@
             pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
             pkgs-master = inputs.nixpkgs-master.legacyPackages.${system};
             pkgs-last = inputs.nixpkgs-last.legacyPackages.${system};
+
+            mypkgs.vimPlugins = import ./nix/vimPlugins { inherit pkgs; };
           };
         in
         rec {
@@ -31,7 +33,7 @@
             neovim = import ./nix/packages/neovim.nix {
               inherit pkgs extras mnw;
             };
-            vimPlugins = import ./nix/vimPlugins { inherit pkgs; };
+            vimPlugins = extras.mypkgs.vimPlugins;
             default = neovim;
           };
         }
