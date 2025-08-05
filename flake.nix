@@ -22,11 +22,17 @@
         let
           pkgs-stable = nixpkgs-stable.legacyPackages.${system};
         in
-        {
-          devShells.${system}.default = import ./nix/devShell.nix { pkgs = pkgs-stable; };
-          packages.${system}.default = import ./nix/packages/neovim.nix {
+        rec {
+          devShells.${system}.default = import ./nix/devShell.nix {
             pkgs = pkgs-stable;
-            inherit mnw;
+            selfpkgs = packages.${system};
+          };
+          packages.${system} = rec {
+            neovim = import ./nix/packages/neovim.nix {
+              pkgs = pkgs-stable;
+              inherit mnw;
+            };
+            default = neovim;
           };
         }
       ) (import systems)
