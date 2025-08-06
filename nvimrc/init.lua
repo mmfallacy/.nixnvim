@@ -6,20 +6,18 @@ if mnw == nil then
     vim.log.levels.ERROR
   )
 end
-vim.opt.rtp:prepend(mnw.configDir .. '/pack/mnw/start/lazy.nvim')
--- This contains the overrides for opts to make lazy.nvim work with nix
 local opts = {
   dev = {
-    -- Handle plugin installation from nix, point lazy to lazy-plugins linkfarm
+    -- Handle plugin installation from nix, point lazy to mnw optPlugins
     path = mnw.configDir .. '/pack/mnw/opt',
-    -- Match all plugins for local lazy-plugins sourcing
+    -- Match all plugins for nix-store sourcing
     patterns = { '' },
-    -- Do not fallback to git as the linkfarm is readonly (location inside /nix/store )
+    -- Do not fallback to git as the plugin source is readonly (location inside /nix/store)
     fallback = false,
   },
 
   performance = {
-    reset_packapath = false,
+    reset_packpath = false,
     rtp = {
       reset = false,
     },
@@ -40,6 +38,7 @@ local spec = {
       ensure_installed = {},
     },
   },
+  -- Configure mini.base16 since this standalone flake cannot rely on stylix
   {
     'echasnovski/mini.base16',
     opts = {
