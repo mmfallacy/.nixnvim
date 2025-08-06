@@ -13,4 +13,12 @@ mnw.lib.wrap pkgs {
       impure = "/home/mmfallacy/.nixnvim/nvimrc";
     };
   };
+
+  extraBinPath = with pkgs; [
+    xclip
+    wl-clipboard
+
+    ripgrep
+    fd
+  ];
 }
