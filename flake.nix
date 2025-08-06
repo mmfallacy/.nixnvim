@@ -10,8 +10,7 @@
       nixpkgs-stable,
       systems,
       mnw,
-      ...
-    }@inputs:
+      ... }@inputs:
     builtins.foldl' (a: b: a // b) { } (
       builtins.map (
         system:
@@ -23,7 +22,9 @@
             pkgs-master = inputs.nixpkgs-master.legacyPackages.${system};
             pkgs-last = inputs.nixpkgs-last.legacyPackages.${system};
 
+            nil = inputs.nil.packages.${system}.nil;
             mypkgs.vimPlugins = import ./nix/vimPlugins { inherit pkgs; };
+            
           };
         in
         rec {
@@ -49,6 +50,7 @@
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     systems.url = "github:nix-systems/default";
     mnw.url = "github:Gerg-L/mnw";
+    nil.url = "github:oxalica/nil";
   };
 
 }
