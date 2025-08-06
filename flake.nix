@@ -2,11 +2,8 @@
   nixConfig.substituters = [
     "https://cache.nixos.org/"
   ];
-  nixConfig.extra-experimental-features = [
-    "nix-command"
-    "flakes"
-    "pipe-operators"
-  ];
+  # This presumes that nix-command and flakes are already active via nix.conf
+  nixConfig.extra-experimental-features = [ "pipe-operators" ];
 
   outputs =
     {
