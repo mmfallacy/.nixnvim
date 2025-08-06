@@ -3,11 +3,14 @@
   mnw,
   extras,
 }:
-mnw.lib.wrap pkgs {
+let 
+  plugins = import ./plugins.nix { inherit pkgs extras; };
+  lsps = import ./lsp.nix {inherit pkgs extras;};
+in mnw.lib.wrap pkgs {
   neovim = pkgs.neovim-unwrapped;
   luaFiles = [ ../../nvimrc/init.lua ];
 
-  plugins = import ./plugins.nix { inherit pkgs extras; } // {
+  plugins = plugins // {
     dev.nvimrc = {
       pure = ../../nvimrc;
       impure = "/home/mmfallacy/.nixnvim/nvimrc";
@@ -20,5 +23,6 @@ mnw.lib.wrap pkgs {
 
     ripgrep
     fd
-  ];
+  ] ++ lsps;
+  
 }
