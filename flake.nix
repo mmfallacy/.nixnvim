@@ -10,7 +10,8 @@
       nixpkgs-stable,
       systems,
       mnw,
-      ... }@inputs:
+      ...
+    }@inputs:
     builtins.foldl' (a: b: a // b) { } (
       builtins.map (
         system:
@@ -24,7 +25,7 @@
 
             nil = inputs.nil.packages.${system}.nil;
             mypkgs.vimPlugins = import ./nix/vimPlugins { inherit pkgs; };
-            
+
           };
         in
         rec {

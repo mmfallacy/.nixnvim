@@ -9,7 +9,8 @@ in
 # At least fallback to unstable in the case some plugins do not get backported.
 # Immediately update once nixpkgs-master gets merged to unstable after a few days.
 # i.e. when `nixos-xx.xx` (stable branch) supports the version indicated beside unstable.<plugin>
-with pkgs.vimPlugins; let
+with pkgs.vimPlugins;
+let
   treesitter = import ./treesitter.nix { inherit pkgs extras; };
 in
 {

@@ -47,4 +47,4 @@ let
   );
 
 in
-  TSwithGrammars.dependencies
+TSwithGrammars.dependencies

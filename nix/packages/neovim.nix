@@ -3,10 +3,11 @@
   mnw,
   extras,
 }:
-let 
+let
   plugins = import ./plugins.nix { inherit pkgs extras; };
-  lsps = import ./lsp.nix {inherit pkgs extras;};
-in mnw.lib.wrap pkgs {
+  lsps = import ./lsp.nix { inherit pkgs extras; };
+in
+mnw.lib.wrap pkgs {
   neovim = pkgs.neovim-unwrapped;
   luaFiles = [ ../../nvimrc/init.lua ];
 
@@ -17,12 +18,15 @@ in mnw.lib.wrap pkgs {
     };
   };
 
-  extraBinPath = with pkgs; [
-    xclip
-    wl-clipboard
+  extraBinPath =
+    with pkgs;
+    [
+      xclip
+      wl-clipboard
 
-    ripgrep
-    fd
-  ] ++ lsps;
-  
+      ripgrep
+      fd
+    ]
+    ++ lsps;
+
 }
