@@ -9,7 +9,7 @@ pkgs.lib.pipe ./. [
       pkgs.lib.nameValuePair path null
     else
       let
-        fname = path |> pkgs.lib.splitString "." |> builtins.head;
+        fname = builtins.head (pkgs.lib.splitString "." path);
       in
       pkgs.lib.nameValuePair fname (pkgs.callPackage (./. + "/${path}") { })
   ))
