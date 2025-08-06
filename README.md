@@ -19,3 +19,7 @@ This repository hosts my neovim configuration using Nix and [`mnw`](https://gith
 ```
 
 ```
+
+## TODO
+
+- [ ] Investigate why placing treesitter parsers as part of `mnw.plugins.opt` works as intended, while treesitter doesn't see the parsers when placed in `mnw.plugins.start`.
