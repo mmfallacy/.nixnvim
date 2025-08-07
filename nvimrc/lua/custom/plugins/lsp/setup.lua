@@ -53,49 +53,54 @@ return function(_, _)
     flake = vim.env.FLAKE,
   }
 
-  local handlers = {
-    ['lua_ls'] = {},
-    ['marksman'] = {},
-    ['nil_ls'] = {
-      settings = {
-        nix = { flake = { autoArchive = true } },
+  local handlers =
+    {
+      ['lua_ls'] = {},
+      ['marksman'] = {},
+      ['nil_ls'] = {
+        settings = {
+          nix = { flake = { autoArchive = true } },
+        },
       },
-    },
-    ['nixd'] = {
-      settings = {
-        nixd = {
-          options = {
-            nixos = {
-              expr = '(builtins.getFlake "' .. const.flake .. '").nixosConfigurations.' .. const.hostname .. '.options',
+      ['nixd'] = const.hostname and const.flake and {
+        settings = {
+          nixd = {
+            options = {
+              nixos = {
+                expr = '(builtins.getFlake "'
+                  .. const.flake
+                  .. '").nixosConfigurations.'
+                  .. const.hostname
+                  .. '.options',
+              },
+              home_manager = {
+                expr = '(builtins.getFlake "'
+                  .. const.flake
+                  .. '").nixosConfigurations.'
+                  .. const.hostname
+                  .. '.options.home-manager.users.type.getSubOptions []',
+              },
             },
-            home_manager = {
-              expr = '(builtins.getFlake "'
-                .. const.flake
-                .. '").nixosConfigurations.'
-                .. const.hostname
-                .. '.options.home-manager.users.type.getSubOptions []',
+          },
+        },
+      } or {},
+      ['zls'] = {},
+      ['rust_analyzer'] = {},
+      ['vtsls'] = {},
+      ['emmet_language_server'] = {
+        init_options = {
+          syntaxProfiles = {
+            html = {
+              ['self_closing_tags'] = 'xhtml',
             },
           },
         },
       },
-    },
-    ['zls'] = {},
-    ['rust_analyzer'] = {},
-    ['vtsls'] = {},
-    ['emmet_language_server'] = {
-      init_options = {
-        syntaxProfiles = {
-          html = {
-            ['self_closing_tags'] = 'xhtml',
-          },
-        },
-      },
-    },
-    ['cssls'] = {},
-    ['eslint'] = {},
-    ['bashls'] = {},
-    ['buf_ls'] = {},
-  }
+      ['cssls'] = {},
+      ['eslint'] = {},
+      ['bashls'] = {},
+      ['buf_ls'] = {},
+    }
 
   lsp_setup_handlers(handlers, global)
 end
