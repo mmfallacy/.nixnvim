@@ -104,7 +104,7 @@ return function(_, _)
       ['harper_ls'] = {
         settings = {
           ['harper-ls'] = {
-            diagnosticSeverity = 'error',
+            diagnosticSeverity = 'warning',
           },
         },
       },
