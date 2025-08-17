@@ -8,6 +8,8 @@ mkShell {
 
   nativeBuildInputs =
     let
+      bin = pkg: lib.getExe pkg;
+
       mnw = pkgs.symlinkJoin {
         name = "mnw";
         paths = [ selfpkgs.neovim.devMode ];
@@ -16,9 +18,15 @@ mkShell {
           mv $out/bin/nvim $out/bin/mnw
         '';
       };
+
+      # Open mnw at given directory by changing pwd.
+      mnwcd = pkgs.writeShellScriptBin "mnwcd" ''
+        pushd "$1" && ${bin mnw} . "''${@:2}" && popd
+      '';
     in
     [
       mnw
+      mnwcd
     ];
 
 }
