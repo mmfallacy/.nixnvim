@@ -26,6 +26,8 @@ mnw.lib.wrap pkgs {
 
       ripgrep
       fd
+
+      websocat # Required by typst-preview-nvim
     ]
     ++ lsps;
 

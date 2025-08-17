@@ -38,6 +38,7 @@ in
 
     # Local used plugins:
     follow-md-links-nvim
+    typst-preview-nvim
 
     # Git integration
     neogit
@@ -100,5 +101,6 @@ in
     conform-nvim
     # NOTE: LSP installation is handled by ./lsp.nix.
 
-  ] ++ treesitter;
+  ]
+  ++ treesitter;
 }
