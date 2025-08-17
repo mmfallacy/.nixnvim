@@ -56,7 +56,6 @@ return function(_, _)
   local handlers =
     {
       ['lua_ls'] = {},
-      ['marksman'] = {},
       ['nil_ls'] = {
         settings = {
           nix = { flake = { autoArchive = true } },
@@ -110,6 +109,10 @@ return function(_, _)
           },
         },
       },
+      -- Typst
+      ['tinymist'] = {},
+      -- Markdown
+      ['marksman'] = {},
     }
 
   lsp_setup_handlers(handlers, global)

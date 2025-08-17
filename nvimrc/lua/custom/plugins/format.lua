@@ -22,6 +22,7 @@ M.opts = {
     markdown = { 'prettier_md' },
     ['*'] = { 'injected' },
     bash = { 'shfmt' },
+    typst = { 'typstyle' },
   },
   default_format_opts = {
     lsp_format = 'fallback',
