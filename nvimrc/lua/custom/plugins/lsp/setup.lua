@@ -100,6 +100,16 @@ return function(_, _)
       ['eslint'] = {},
       ['bashls'] = {},
       ['buf_ls'] = {},
+
+      -- Grammar checking
+      ['harper_ls'] = {
+        settings = {
+          ['harper-ls'] = {
+            diagnosticSeverity = 'error',
+            userDictPath = '~/.harper.dict',
+          },
+        },
+      },
     }
 
   lsp_setup_handlers(handlers, global)

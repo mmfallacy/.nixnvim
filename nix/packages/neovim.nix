@@ -27,6 +27,7 @@ mnw.lib.wrap pkgs {
       ripgrep
       fd
 
+      harper # Grammar checker required by nvim-lspconfig:harper_ls
       websocat # Required by typst-preview-nvim
     ]
     ++ lsps;
