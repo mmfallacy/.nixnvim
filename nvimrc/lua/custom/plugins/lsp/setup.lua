@@ -105,7 +105,6 @@ return function(_, _)
         settings = {
           ['harper-ls'] = {
             diagnosticSeverity = 'error',
-            userDictPath = '~/.harper.dict',
           },
         },
       },
