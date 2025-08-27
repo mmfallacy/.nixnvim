@@ -34,6 +34,9 @@ in
     dressing-nvim
     img-clip-nvim
     nui-nvim
+
+    codecompanion-nvim
+
     #
     snacks-nvim
     nvim-config-local
