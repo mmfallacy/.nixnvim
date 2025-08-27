@@ -10,8 +10,9 @@ mkShell {
     let
       bin = pkg: lib.getExe pkg;
 
-      mnw = pkgs.symlinkJoin {
+      mnw = pkgs.symlinkJoin rec {
         name = "mnw";
+        meta.mainProgram = name;
         paths = [ selfpkgs.neovim.devMode ];
         postBuild = ''
           # Rename nvim output to mnw
