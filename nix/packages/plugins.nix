@@ -3,6 +3,8 @@ let
   # NOTE: Preference is stable -> unstable -> master. master = extras.pkgs-master.vimPlugins;
   unstable = extras.pkgs-unstable.vimPlugins;
 
+  master = extras.pkgs-master.vimPlugins;
+
   # Create plugin source from mypkgs and set to follow pkgs stable
   mypkgs = extras.mypkgs.vimPlugins;
 in
@@ -24,7 +26,7 @@ in
     oil-nvim
     snipe-nvim
     unstable.render-markdown-nvim
-    mypkgs.live-preview-nvim
+    master.live-preview-nvim
     vim-sleuth
 
     # AI
