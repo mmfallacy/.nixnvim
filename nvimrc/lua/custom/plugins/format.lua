@@ -31,6 +31,10 @@ M.opts = {
   formatters = {},
 }
 
+M.opts.formatters_by_ft.typescript = { 'prettierd', 'prettier', stop_after_first = true }
+
+M.opts.formatters_by_ft.typescriptreact = M.opts.formatters_by_ft.typescript
+
 -- Instantiate prettier for markdown.
 -- https://github.com/stevearc/conform.nvim/issues/339
 local function create_prettier_md()
@@ -54,11 +58,17 @@ end
 
 M.config = function(_, opts)
   local conform = require('conform')
+
+  -- first() runs the first available formatter, then runs the next
+
   conform.setup(opts)
 
   conform.formatters.prettier_md = create_prettier_md()
-end
 
--- M.opts.formatters.<formatter> = {}
+  -- Prettierd: Use local prettier if available
+  require('conform.formatters.prettierd').env = {
+    PRETTIERD_LOCAL_PRETTIER_ONLY = true,
+  }
+end
 
 return M
