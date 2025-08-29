@@ -55,6 +55,7 @@ return function(_, _)
 
   local handlers =
     {
+      -- Configurations
       ['lua_ls'] = {},
       ['nil_ls'] = {
         settings = {
@@ -83,9 +84,16 @@ return function(_, _)
           },
         },
       } or {},
-      ['zls'] = {},
+
+      -- Rust, Zig, Bash
       ['rust_analyzer'] = {},
+      ['zls'] = {},
+      ['bashls'] = {},
+
+      -- Web Dev
       ['vtsls'] = {},
+      ['eslint'] = {},
+      ['cssls'] = {},
       ['emmet_language_server'] = {
         init_options = {
           syntaxProfiles = {
@@ -95,9 +103,7 @@ return function(_, _)
           },
         },
       },
-      ['cssls'] = {},
-      ['eslint'] = {},
-      ['bashls'] = {},
+      -- Protobufs
       ['buf_ls'] = {},
 
       -- Grammar checking
