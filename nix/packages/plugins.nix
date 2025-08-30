@@ -26,7 +26,7 @@ in
     oil-nvim
     snipe-nvim
     unstable.render-markdown-nvim
-    master.live-preview-nvim
+    unstable.live-preview-nvim
     vim-sleuth
 
     # AI
