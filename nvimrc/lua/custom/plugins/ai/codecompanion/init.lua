@@ -26,7 +26,9 @@ local N = {
 }
 
 N.opts = {
-  system_prompt = system_prompt,
+  opts = {
+    system_prompt = system_prompt,
+  },
   strategies = {
     chat = { adapter = 'gemini' },
     inline = { adapter = 'gemini' },
