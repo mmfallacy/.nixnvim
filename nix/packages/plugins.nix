@@ -36,7 +36,7 @@ in
     nui-nvim
 
     master.codecompanion-nvim
-    fidget-nvim
+    mypkgs.codecompanion-spinner-nvim
 
     #
     snacks-nvim

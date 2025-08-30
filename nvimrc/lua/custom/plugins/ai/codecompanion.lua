@@ -5,6 +5,7 @@ local N = {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
+    'franco-ruggeri/codecompanion-spinner.nvim',
   },
   cmd = { 'CodeCompanion', 'CodeCompanionChat', 'CodeCompanionActions' },
   keys = {
@@ -30,6 +31,9 @@ N.opts = {
     inline = { adapter = 'gemini' },
   },
   adapters = { http = {}, acp = {} },
+  extensions = {
+    spinner = {},
+  },
 }
 
 function N.config(_, opts)
