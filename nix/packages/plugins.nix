@@ -35,7 +35,8 @@ in
     img-clip-nvim
     nui-nvim
 
-    codecompanion-nvim
+    master.codecompanion-nvim
+    fidget-nvim
 
     #
     snacks-nvim
