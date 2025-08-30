@@ -15,7 +15,7 @@ local N = {
       mode = { 'n', 'v' },
     },
     {
-      '<leader><S-A>',
+      '<leader>a',
       '<cmd>CodeCompanionChat Add<CR>',
       desc = 'Add code to a chat buffer',
       mode = { 'v' },
@@ -29,11 +29,11 @@ N.opts = {
     chat = { adapter = 'gemini' },
     inline = { adapter = 'gemini' },
   },
-  adapters = {},
+  adapters = { http = {}, acp = {} },
 }
 
 function N.config(_, opts)
-  opts.adapters.gemini = function()
+  opts.adapters.http.gemini = function()
     return require('codecompanion.adapters').extend('gemini', {
       env = {
         api_key = vim.env.GEMINI_API_KEY,
