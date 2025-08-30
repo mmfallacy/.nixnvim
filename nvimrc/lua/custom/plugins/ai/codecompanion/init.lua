@@ -1,4 +1,5 @@
 local utils = require('custom.plugins.ai.utils')
+local system_prompt = require('custom.plugins.ai.codecompanion.system_prompt')
 
 local N = {
   'ollimorris/codecompanion.nvim',
@@ -25,7 +26,7 @@ local N = {
 }
 
 N.opts = {
-
+  system_prompt = system_prompt,
   strategies = {
     chat = { adapter = 'gemini' },
     inline = { adapter = 'gemini' },
