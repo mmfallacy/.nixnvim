@@ -103,6 +103,7 @@ return function(_, _)
           },
         },
       },
+      ['tailwindcss'] = {},
       -- Protobufs
       ['buf_ls'] = {},
 
