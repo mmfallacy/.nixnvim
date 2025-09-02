@@ -7,6 +7,7 @@ local N = {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
     'franco-ruggeri/codecompanion-spinner.nvim',
+    'Davidyz/vectorcode.nvim',
   },
   cmd = { 'CodeCompanion', 'CodeCompanionChat', 'CodeCompanionActions' },
   keys = {
@@ -52,6 +53,8 @@ function N.config(_, opts)
       },
     })
   end
+
+  opts.extensions.vectorcode = {}
 
   if utils.has_missing_key(opts.strategies.chat.adapter) or utils.has_missing_key(opts.strategies.inline.adapter) then
     return vim.notify([[codecompanion.nvim cannot find your API key!]], vim.log.levels.ERROR)
