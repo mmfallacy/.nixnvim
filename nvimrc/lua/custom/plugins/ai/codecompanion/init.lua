@@ -45,6 +45,11 @@ function N.config(_, opts)
       env = {
         api_key = vim.env.GEMINI_API_KEY,
       },
+      schema = {
+        model = {
+          default = 'gemini-2.5-flash-lite',
+        },
+      },
     })
   end
 
