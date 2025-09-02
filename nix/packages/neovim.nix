@@ -28,6 +28,8 @@ mnw.lib.wrap pkgs {
       fd
 
       websocat # Required by typst-preview-nvim
+
+      vectorcode # Required by vectorcode-nvim
     ]
     ++ lsps;
 

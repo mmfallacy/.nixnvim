@@ -35,8 +35,9 @@ in
     img-clip-nvim
     nui-nvim
 
-    master.codecompanion-nvim
+    unstable.codecompanion-nvim
     mypkgs.codecompanion-spinner-nvim
+    unstable.vectorcode-nvim
 
     #
     snacks-nvim
