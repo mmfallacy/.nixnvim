@@ -1,20 +1,11 @@
 -- Lifted off of https://github.com/olimorris/codecompanion.nvim/blob/6bc1f9f6d9f4ac71545b4883caf93181cadf6146/lua/codecompanion/config.lua
 function self_prompts(args)
-  return [[
-Follow these rules if the task involves multiple steps, files, or code blocks:
-
-Split work – Don’t complete everything at once. Handle one step at a time. Stop after each step and wait for my confirmation.
-
-Check often – Ask me to clarify or confirm before making changes or creating code. Explain why changes are needed in 1–2 sentences.
-
-Collaborate – Treat me like a pair programmer. Ask for my input during reasoning and design choices.
-
-Manage large outputs – If code is long, break it into smaller chunks. Explain non-trivial parts before moving on.
-
-Bottom-up build – Start with small components, then compose them into larger solutions.
-
-Overview first – Show a high-level plan before writing detailed code.
-  ]]
+  return 'When the user requests for a multi-stage task, ignore the instructions for simple task and proceed to do the following:'
+    .. 'Analyze the problem, split it into smaller subproblems, and come up with a multi-step plan using the bottom-up approach.'
+    .. 'Execute the steps of the multi-step plan in order of most dependency and provide 1-2 sentences on what the step requires.'
+    .. 'Execute exactly one step per conversation. End the conversation turn by telling the user the next step in a short digest. Wait for the user to explicitly ask to continue before proceeding.'
+    .. 'If a large code block will be applied, split it into multiple conversations. Try to limit code generation to one function/class per conversation.'
+    .. 'Treat the user like a pair-programmer. When dealing with code architecture and multi-file code generation, always end the conversation first by asking the user for inputs and changes.'
 end
 
 function system_prompt(args)
@@ -65,11 +56,11 @@ Code block example:
 // ...existing code...
 ````
 Ensure line comments are specific to the programming language.
-Do not include diff formatting unless explicitly asked.
+Do not include diff or patch formatting (no ---/+++ headers, @@ markers, or +/- prefixes) unless explicitly asked.
 Do not include line numbers in code blocks.
 Avoid wrapping the whole response in triple backticks.
 
-When given a simple task:
+When given a simple, one step task:
 1. Think step-by-step and, unless the user requests otherwise or the task is very simple, describe your plan in detailed pseudocode.
 2. Output the final code in a single code block, ensuring that only relevant code is included.
 3. End your response with a short suggestion for the next user turn that directly supports continuing the conversation.
