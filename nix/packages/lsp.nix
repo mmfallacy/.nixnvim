@@ -19,7 +19,7 @@ with pkgs;
 
   # Markdown
   # stable has version 2024-10-07 which is 3 releases behind latest (2024-12-18) at the time of writing.
-  unstable.marksman
+  marksman
   unstable.harper # Grammar checker required by nvim-lspconfig:harper_ls (0.56.0)
 
   # Typescript
