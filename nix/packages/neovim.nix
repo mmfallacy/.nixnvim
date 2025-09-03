@@ -30,6 +30,8 @@ mnw.lib.wrap pkgs {
       websocat # Required by typst-preview-nvim
 
       extras.pkgs-unstable.vectorcode # Required by vectorcode-nvim. Use same version
+
+      # extras.aider
     ]
     ++ lsps;
 

@@ -18,7 +18,7 @@
         let
           pkgs = nixpkgs-stable.legacyPackages.${system};
 
-          extras = {
+          extras = rec {
             pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
             pkgs-master = inputs.nixpkgs-master.legacyPackages.${system};
             pkgs-last = inputs.nixpkgs-last.legacyPackages.${system};
@@ -26,6 +26,7 @@
             nil = inputs.nil.packages.${system}.nil;
             mypkgs.vimPlugins = import ./nix/vimPlugins { inherit pkgs; };
 
+            aider = pkgs-unstable.aider-chat;
           };
         in
         rec {
@@ -39,6 +40,8 @@
             };
             vimPlugins = extras.mypkgs.vimPlugins;
             default = neovim;
+            # Reexport version from extras for .nixconfig to install
+            aider = extras.aider;
           };
         }
       ) (import systems)
