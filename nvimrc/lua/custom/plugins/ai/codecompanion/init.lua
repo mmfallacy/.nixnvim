@@ -33,6 +33,7 @@ N.opts = {
   strategies = {
     chat = { adapter = 'gemini_cli_flash' },
     inline = { adapter = 'gemini_cli_flash' },
+    cmd = { adapter = 'gemini_cli_flash' },
   },
   adapters = {
     http = { opts = { show_defaults = false } },
@@ -67,6 +68,13 @@ function N.config(_, opts)
           'gemini-2.5-flash',
           '--experimental-acp',
         },
+        yolo = {
+          'gemini',
+          '--yolo',
+          '-m',
+          'gemini-2.5-flash',
+          '--experimental-acp',
+        },
       },
       defaults = {
         auth_method = 'gemini-api-key',
@@ -80,12 +88,6 @@ function N.config(_, opts)
   opts.adapters.acp.gemini_cli_pro = function()
     return require('codecompanion.adapters').extend('gemini_cli', {
       formatted_name = 'Gemini CLI 2.5 Pro',
-      commands = {
-        default = {
-          'gemini',
-          '--experimental-acp',
-        },
-      },
       defaults = {
         auth_method = 'gemini-api-key',
       },
