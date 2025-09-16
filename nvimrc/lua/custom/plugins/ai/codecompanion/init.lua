@@ -31,10 +31,13 @@ N.opts = {
     system_prompt = system_prompt,
   },
   strategies = {
-    chat = { adapter = 'gemini' },
-    inline = { adapter = 'gemini' },
+    chat = { adapter = 'gemini_cli_flash' },
+    inline = { adapter = 'gemini_cli_flash' },
   },
-  adapters = { http = {}, acp = {} },
+  adapters = {
+    http = { opts = { show_defaults = false } },
+    acp = { opts = { show_defaults = false } },
+  },
   extensions = {
     spinner = {},
   },
@@ -50,6 +53,44 @@ function N.config(_, opts)
         model = {
           default = 'gemini-2.5-flash-lite',
         },
+      },
+    })
+  end
+
+  opts.adapters.acp.gemini_cli_flash = function()
+    return require('codecompanion.adapters').extend('gemini_cli', {
+      formatted_name = 'Gemini CLI 2.5 Flash',
+      commands = {
+        default = {
+          'gemini',
+          '-m',
+          'gemini-2.5-flash',
+          '--experimental-acp',
+        },
+      },
+      defaults = {
+        auth_method = 'gemini-api-key',
+      },
+      env = {
+        GEMINI_API_KEY = vim.env.GEMINI_API_KEY,
+      },
+    })
+  end
+
+  opts.adapters.acp.gemini_cli_pro = function()
+    return require('codecompanion.adapters').extend('gemini_cli', {
+      formatted_name = 'Gemini CLI 2.5 Pro',
+      commands = {
+        default = {
+          'gemini',
+          '--experimental-acp',
+        },
+      },
+      defaults = {
+        auth_method = 'gemini-api-key',
+      },
+      env = {
+        GEMINI_API_KEY = vim.env.GEMINI_API_KEY,
       },
     })
   end
