@@ -28,6 +28,8 @@ mkShell {
     [
       mnw
       mnwcd
+      selfpkgs.aider
+      selfpkgs.gemini-cli
     ];
 
 }
