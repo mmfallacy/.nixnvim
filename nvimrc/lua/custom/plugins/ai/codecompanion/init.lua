@@ -95,8 +95,6 @@ function N.config(_, opts)
     })
   end
 
-  opts.extensions.vectorcode = {}
-
   if utils.has_missing_key(opts.strategies.chat.adapter) or utils.has_missing_key(opts.strategies.inline.adapter) then
     return vim.notify([[codecompanion.nvim cannot find your API key!]], vim.log.levels.ERROR)
   end
