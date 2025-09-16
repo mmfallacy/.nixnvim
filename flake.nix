@@ -27,6 +27,7 @@
             mypkgs.vimPlugins = import ./nix/vimPlugins { inherit pkgs; };
 
             aider = pkgs-unstable.aider-chat;
+            gemini-cli = pkgs-unstable.gemini-cli;
           };
         in
         rec {
@@ -42,6 +43,7 @@
             default = neovim;
             # Reexport version from extras for .nixconfig to install
             aider = extras.aider;
+            gemini-cli = extras.gemini-cli;
           };
         }
       ) (import systems)
