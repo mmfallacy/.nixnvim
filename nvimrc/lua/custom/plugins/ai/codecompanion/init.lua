@@ -97,8 +97,8 @@ function N.config(_, opts)
     })
   end
 
-  if utils.has_missing_key(opts.strategies.chat.adapter) or utils.has_missing_key(opts.strategies.inline.adapter) then
-    return vim.notify([[codecompanion.nvim cannot find your API key!]], vim.log.levels.ERROR)
+  if require('custom.plugins.ai.codecompanion.checks').check(opts) then
+    return vim.notify([[codecompanion.nvim failed checks]], vim.log.levels.ERROR)
   end
   return require('codecompanion').setup(opts)
 end
