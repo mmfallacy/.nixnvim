@@ -42,10 +42,6 @@ in
     #
     snacks-nvim
     flash-nvim
-    nvim-config-local
-
-    # Local used plugins:
-    follow-md-links-nvim
     typst-preview-nvim
 
     # Git integration
