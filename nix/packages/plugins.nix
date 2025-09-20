@@ -41,6 +41,7 @@ in
 
     #
     snacks-nvim
+    flash-nvim
     nvim-config-local
 
     # Local used plugins:
