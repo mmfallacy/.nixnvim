@@ -13,73 +13,20 @@ in
 # i.e. when `nixos-xx.xx` (stable branch) supports the version indicated beside unstable.<plugin>
 with pkgs.vimPlugins;
 let
-  treesitter = import ./treesitter.nix { inherit pkgs extras; };
-in
-{
-  start = [ lazy-nvim ];
-  # Place all in opt so lazy-nvim sees it.
-  opt = [
-    # Common Dependencies
-    plenary-nvim
+  treesitter = [
+    nvim-treesitter
+    nvim-treesitter-context
+  ]
+  # NOTE: Parsers are handled by ./treesiter.nix.
+  ++ import ./treesitter.nix { inherit pkgs extras; };
 
-    # Plugins
-    oil-nvim
-    snipe-nvim
-    unstable.render-markdown-nvim
-    unstable.live-preview-nvim
-    vim-sleuth
+  telescope = [
+    telescope-nvim
+    telescope-ui-select-nvim
+    telescope-fzf-native-nvim
+  ];
 
-    # AI
-    avante-nvim
-    dressing-nvim
-    img-clip-nvim
-    nui-nvim
-
-    unstable.codecompanion-nvim
-    mypkgs.codecompanion-spinner-nvim
-    unstable.vectorcode-nvim
-
-    #
-    snacks-nvim
-    flash-nvim
-    typst-preview-nvim
-
-    # Git integration
-    neogit
-    diffview-nvim
-    gitsigns-nvim
-
-    blink-cmp
-    blink-cmp
-    blink-emoji-nvim
-    blink-cmp-avante
-
-    # snippets
-    friendly-snippets
-
-    # (pkgs.symlinkJoin {
-    #   # Set luasnip to what neovim expects (L3MON4D3/LuaSnip).
-    #   name = "LuaSnip";
-    #   paths = [ luasnip ];
-    # })
-
-    luasnip
-
-    # nvim-cmp
-    nvim-cmp
-    cmp-nvim-lsp
-    cmp-buffer
-    cmp-path
-    cmp-emoji
-    cmp_luasnip
-
-    # Colorschemes and icons
-    onedarkpro-nvim
-    night-owl-nvim
-    mini-base16
-    nvim-web-devicons
-
-    # Mini.nvim
+  mini = [
     mini-ai
     mini-cursorword
     mini-files
@@ -88,23 +35,81 @@ in
     mini-splitjoin
     mini-statusline
     mini-surround
+  ];
 
-    # telescope.nvim and extensions
-    telescope-nvim
-    telescope-ui-select-nvim
-    telescope-fzf-native-nvim
+  ai = [
+    avante-nvim
+    dressing-nvim
+    img-clip-nvim
+    nui-nvim
 
-    # treesitter
-    nvim-treesitter
-    nvim-treesitter-context
-    # NOTE: Parsers are handled by ./treesiter.nix.
+    unstable.codecompanion-nvim
+    mypkgs.codecompanion-spinner-nvim
+    unstable.vectorcode-nvim
+  ];
 
-    # LSP and other configuration
+  cmp = [
+    nvim-cmp
+    cmp-nvim-lsp
+    cmp-buffer
+    cmp-path
+    cmp-emoji
+    cmp_luasnip
+
+    blink-cmp
+    blink-cmp
+    blink-emoji-nvim
+    blink-cmp-avante
+
+    friendly-snippets
+    luasnip
+  ];
+
+  git = [
+
+    neogit
+    diffview-nvim
+    gitsigns-nvim
+  ];
+
+  scheme = [
+    onedarkpro-nvim
+    night-owl-nvim
+    mini-base16
+    nvim-web-devicons
+  ];
+in
+{
+  start = [ lazy-nvim ];
+  # Place all in opt so lazy-nvim sees it.
+  opt = [
+    # Common Dependencies
+    plenary-nvim
+
+    # NOTE: LSP installation is handled by ./lsp.nix and devShells.
     nvim-lspconfig
     lazydev-nvim
     conform-nvim
-    # NOTE: LSP installation is handled by ./lsp.nix.
 
+    # Miscellaneous
+    oil-nvim
+    snipe-nvim
+    vim-sleuth
+    snacks-nvim
+    flash-nvim
+
+    # ft: markdown
+    unstable.render-markdown-nvim
+    unstable.live-preview-nvim
+
+    # ft: typst
+    typst-preview-nvim
   ]
-  ++ treesitter;
+  ++ treesitter
+  ++ telescope
+  ++ mini
+  ++ ai
+  ++ cmp
+  ++ git
+  ++ scheme;
 }
