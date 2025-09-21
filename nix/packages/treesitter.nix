@@ -42,7 +42,9 @@ let
       xml
       yaml
       zig
+
       nix
+      http
     ]
   );
 

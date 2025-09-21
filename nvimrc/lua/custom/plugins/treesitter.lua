@@ -62,6 +62,7 @@ local ensure_installed = {
   'yaml',
   -- Self
   'nix',
+  'http',
 }
 
 -- This function checks if ensure_installed matches the available parsers. If not, it warns the user.
