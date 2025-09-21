@@ -78,6 +78,7 @@ let
     mini-base16
     nvim-web-devicons
   ];
+
 in
 {
   start = [ lazy-nvim ];
@@ -104,6 +105,9 @@ in
 
     # ft: typst
     typst-preview-nvim
+
+    # ft: http
+    rest-nvim
   ]
   ++ treesitter
   ++ telescope

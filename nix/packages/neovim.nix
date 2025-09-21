@@ -31,4 +31,13 @@ mnw.lib.wrap pkgs {
     ]
     ++ lsps;
 
+  # https://github.com/lumen-oss/rocks.nvim?tab=readme-ov-file#a-note-on-loading-rocks
+  extraLuaPackages =
+    ps:
+    builtins.concatLists [
+      ps.rest-nvim.propagatedBuildInputs
+      [
+        # Add extra packages here
+      ]
+    ];
 }
