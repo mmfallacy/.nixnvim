@@ -15,6 +15,8 @@ local M = utils.map_ft('http')({
         end,
       })
 
+      vim.api.nvim_create_user_command('rr', 'Rest run', {})
+
       vim.g.rest_nvim = opts
     end,
   },
