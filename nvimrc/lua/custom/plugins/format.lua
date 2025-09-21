@@ -23,6 +23,7 @@ M.opts = {
     ['*'] = { 'injected' },
     bash = { 'shfmt' },
     typst = { 'typstyle' },
+    json = { 'jq' },
   },
   default_format_opts = {
     lsp_format = 'fallback',

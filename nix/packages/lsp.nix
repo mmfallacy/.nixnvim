@@ -29,4 +29,7 @@ with pkgs;
   shfmt
   shellcheck
   bash-language-server
+
+  # Json
+  jq
 ]
