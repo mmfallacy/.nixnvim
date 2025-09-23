@@ -45,8 +45,12 @@ N.opts = {
 }
 
 function N.config(_, opts)
+  if require('custom.plugins.ai.codecompanion.checks').check(opts) then
+    return vim.notify([[codecompanion.nvim failed checks]], vim.log.levels.ERROR)
+  end
+
   opts.adapters.http.gemini = function()
-    return require('codecompanion.adapters').extend('gemini', {
+    return require('codecompanion.adapters.http').extend('gemini', {
       env = {
         api_key = vim.env.GEMINI_API_KEY,
       },
@@ -59,7 +63,7 @@ function N.config(_, opts)
   end
 
   opts.adapters.acp.gemini_cli_flash = function()
-    return require('codecompanion.adapters').extend('gemini_cli', {
+    return require('codecompanion.adapters.acp').extend('gemini_cli', {
       formatted_name = 'Gemini CLI 2.5 Flash',
       commands = {
         default = {
@@ -86,7 +90,7 @@ function N.config(_, opts)
   end
 
   opts.adapters.acp.gemini_cli_pro = function()
-    return require('codecompanion.adapters').extend('gemini_cli', {
+    return require('codecompanion.adapters.acp').extend('gemini_cli', {
       formatted_name = 'Gemini CLI 2.5 Pro',
       defaults = {
         auth_method = 'gemini-api-key',
@@ -97,9 +101,6 @@ function N.config(_, opts)
     })
   end
 
-  if require('custom.plugins.ai.codecompanion.checks').check(opts) then
-    return vim.notify([[codecompanion.nvim failed checks]], vim.log.levels.ERROR)
-  end
   return require('codecompanion').setup(opts)
 end
 
