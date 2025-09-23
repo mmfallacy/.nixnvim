@@ -32,7 +32,7 @@ M.opts = {
   formatters = {},
 }
 
-M.opts.formatters_by_ft.typescript = { 'prettierd', 'prettier', stop_after_first = true }
+M.opts.formatters_by_ft.typescript = { 'biome', 'prettierd', 'prettier', stop_after_first = true }
 
 M.opts.formatters_by_ft.typescriptreact = M.opts.formatters_by_ft.typescript
 
