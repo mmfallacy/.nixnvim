@@ -32,7 +32,7 @@ M.opts = {
   formatters = {},
 }
 
-M.opts.formatters_by_ft.typescript = { 'biome', 'prettierd', 'prettier', stop_after_first = true }
+M.opts.formatters_by_ft.typescript = { 'biome_from_path', 'prettierd', 'prettier', stop_after_first = true }
 
 M.opts.formatters_by_ft.typescriptreact = M.opts.formatters_by_ft.typescript
 
@@ -65,6 +65,11 @@ M.config = function(_, opts)
   conform.setup(opts)
 
   conform.formatters.prettier_md = create_prettier_md()
+  -- Default biome formatter looks for biome in node_modules.
+  conform.formatters.biome_from_path =
+    require('conform.util').merge_formatter_configs(vim.deepcopy(require('conform.formatters.biome')), {
+      command = 'biome',
+    })
 
   -- Prettierd: Use local prettier if available
   require('conform.formatters.prettierd').env = {
