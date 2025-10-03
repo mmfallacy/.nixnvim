@@ -13,5 +13,4 @@ vimUtils.buildVimPlugin {
     sha256 = "sha256-+lalwWE02YlLlU5zSqBotI5YstDuXtF8k0e6b7lxnhU=";
   };
   meta.homepage = "https://github.com/franco-ruggeri/codecompanion-spinner.nvim/";
-  meta.hydraPlatforms = [ ];
 }
