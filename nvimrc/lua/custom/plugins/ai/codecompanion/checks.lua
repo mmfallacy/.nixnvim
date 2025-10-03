@@ -12,8 +12,9 @@ function M.check(opts)
   for _, provider in ipairs(providers) do
     if utils.has_missing_key(provider) then
       return vim.notify(
-        [[codecompanion.nvim cannot find your API key for provider ]] .. provider .. [[!]],
-        vim.log.levels.ERROR
+        [[Cannot find your API key for provider ]] .. provider .. [[!]],
+        vim.log.levels.ERROR,
+        { title = 'codecompanion.nvim' }
       )
     end
 
@@ -28,20 +29,18 @@ function M.check(opts)
         commands = provider_opts.commands
       else
         return vim.notify(
-          [[custom.plugins.ai.codecompanion.checks does not support non function or non table adapter opts]],
-          vim.log.levels.ERROR
+          [[Non-function or non-table adapter opts not supported]],
+          vim.log.levels.ERROR,
+          { title = 'custom.plugins.ai.codecompanion.checks' }
         )
       end
 
       for _, command in pairs(commands) do
         if vim.fn.executable(command[1]) ~= 1 then
           return vim.notify(
-            [[codecompanion.nvim cannot find the required executable for  acp provider ]]
-              .. provider
-              .. [[:]]
-              .. command[1]
-              .. [[!]],
-            vim.log.levels.ERROR
+            [[Cannot find the required executable for ACP provider ]] .. provider .. [[:]] .. command[1] .. [[!]],
+            vim.log.levels.ERROR,
+            { title = 'codecompanion.nvim' }
           )
         end
       end

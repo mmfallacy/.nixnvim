@@ -72,8 +72,9 @@ local function check_parsers()
   local diff = utils.difference(ensure_installed, parsers)
   if #diff > 0 then
     vim.notify_once(
-      'plugins/treesitter.lua: ensured_installed parsers not met. ' .. vim.inspect(diff) .. ' are missing!',
-      vim.log.levels.WARN
+      'ensured_installed parsers not met. ' .. vim.inspect(diff) .. ' are missing!',
+      vim.log.levels.WARN,
+      { title = 'plugins/treesitter.lua: ' }
     )
   end
 end

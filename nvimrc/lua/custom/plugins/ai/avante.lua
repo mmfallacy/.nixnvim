@@ -21,8 +21,9 @@ function M.config(_, opts)
   -- ENV KEY checking prior to staring avante
   if utils.has_missing_key(opts.provider) then
     return vim.notify(
-      [[avante.nvim cannot find your API key for "]] .. opts.provider .. [[" provider!]],
-      vim.log.levels.ERROR
+      [[Cannot find your API key for "]] .. opts.provider .. [[" provider!]],
+      vim.log.levels.ERROR,
+      { title = 'avante.nvim' }
     )
   else
     require('avante').setup(opts)

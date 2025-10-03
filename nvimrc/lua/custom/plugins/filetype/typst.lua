@@ -15,11 +15,11 @@ local M = utils.map_ft('typst')({
 
     config = function(_, opts)
       if vim.fn.executable('tinymist') == 0 then
-        return vim.notify('typst-preview: failed to find tinymist', vim.log.levels.WARN)
+        return vim.notify('failed to find tinymist', vim.log.levels.WARN, { title = 'typst-preview: ' })
       end
 
       if vim.fn.executable('websocat') == 0 then
-        return vim.notify('typst-preview: failed to find websocat', vim.log.levels.WARN)
+        return vim.notify('failed to find websocat', vim.log.levels.WARN, { title = 'typst-preview: ' })
       end
 
       require('typst-preview').setup(opts)

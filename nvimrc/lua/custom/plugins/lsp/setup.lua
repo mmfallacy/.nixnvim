@@ -34,7 +34,8 @@ local function get_capabilities()
   else
     vim.notify(
       [[ No registered completion engine found! Defaulting to vim LSP Client Capabilities. ]],
-      vim.log.levels.WARN
+      vim.log.levels.WARN,
+      { title = 'custom.plugins.lsp.setup' }
     )
     return vim.lsp.protocol.make_client_capabilities()
   end

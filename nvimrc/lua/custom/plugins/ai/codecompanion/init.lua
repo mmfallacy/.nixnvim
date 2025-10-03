@@ -46,7 +46,7 @@ N.opts = {
 
 function N.config(_, opts)
   if require('custom.plugins.ai.codecompanion.checks').check(opts) then
-    return vim.notify([[codecompanion.nvim failed checks]], vim.log.levels.ERROR)
+    return vim.notify([[Failed checks]], vim.log.levels.ERROR, { title = 'codecompanion.nvim' })
   end
 
   opts.adapters.http.gemini = function()
