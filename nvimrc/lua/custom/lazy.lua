@@ -35,6 +35,8 @@ M.opts = {
   },
 }
 
+local utils = require('custom.utils')
+
 function M.setup(_spec, _opts)
   -- Assumption. spec is a list of plugin specs.
   -- Note: vim.list_extend mutates dst (M.spec)
@@ -46,6 +48,10 @@ function M.setup(_spec, _opts)
   require('lazy').setup(spec, opts)
   require('custom.keybinds')
   require('custom.commands')
+
+  if utils.isMNWDevMode() then
+    return vim.notify([[Running in Dev Mode]], vim.log.levels.INFO, { title = '.nixnvim' })
+  end
 end
 
 return M

@@ -34,4 +34,14 @@ function M.string_starts_with(var, string)
   return var:sub(1, #string) == string
 end
 
+local rtp_paths = vim.api.nvim_list_runtime_paths()
+function M.isMNWDevMode()
+  for _, path in ipairs(rtp_paths) do
+    if string.match(path, '%.nixnvim/nvimrc') then
+      return true
+    end
+  end
+  return false
+end
+
 return M
