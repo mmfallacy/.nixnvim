@@ -15,7 +15,9 @@ local function lsp_setup_handlers(handlers, global)
 
   -- Log the LSPs installed and configured.
   if #installed > 0 then
-    vim.notify_once('LSPs found and configured:\n' .. vim.inspect(installed))
+    vim.notify_once(vim.inspect(installed), vim.log.levels.INFO, {
+      title = 'LSPs found and configured',
+    })
   end
 end
 
