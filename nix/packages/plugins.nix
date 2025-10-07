@@ -44,7 +44,8 @@ let
     nui-nvim
 
     unstable.codecompanion-nvim
-    mypkgs.codecompanion-spinner-nvim
+    unstable.codecompanion-spinner-nvim
+    unstable.codecompanion-lualine-nvim
     unstable.vectorcode-nvim
   ];
 
@@ -98,6 +99,8 @@ in
     vim-sleuth
     snacks-nvim
     flash-nvim
+
+    lualine-nvim
 
     # ft: markdown
     unstable.render-markdown-nvim
