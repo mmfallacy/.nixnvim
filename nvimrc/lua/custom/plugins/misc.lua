@@ -23,4 +23,36 @@ return {
       },
     },
   },
+
+  {
+    'nvim-lualine/lualine.nvim',
+    cond = false,
+    dependencies = {
+      { 'franco-ruggeri/codecompanion-lualine.nvim', opts = {} },
+    },
+    opts = {
+      sections = {
+        lualine_x = {
+          {
+            'codecompanion',
+            icon = ' ',
+            spinner_symbols = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' },
+            done_symbol = '✓',
+          },
+        },
+      },
+    },
+    event = 'VeryLazy',
+  },
+
+  {
+    'Eutrius/Otree.nvim',
+    lazy = false,
+    dependencies = {
+      'stevearc/oil.nvim',
+    },
+    config = function()
+      require('Otree').setup()
+    end,
+  },
 }

@@ -93,6 +93,8 @@ in
     lazydev-nvim
     conform-nvim
 
+    mypkgs.otree-nvim
+
     # Miscellaneous
     oil-nvim
     snipe-nvim
