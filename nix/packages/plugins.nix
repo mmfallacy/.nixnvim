@@ -95,6 +95,7 @@ in
 
     mypkgs.otree-nvim
     mypkgs.xeno-nvim
+    mypkgs.headhunter-nvim
 
     # Miscellaneous
     oil-nvim
