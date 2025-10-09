@@ -94,6 +94,7 @@ in
     conform-nvim
 
     mypkgs.otree-nvim
+    mypkgs.xeno-nvim
 
     # Miscellaneous
     oil-nvim
