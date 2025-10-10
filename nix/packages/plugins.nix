@@ -93,9 +93,7 @@ in
     lazydev-nvim
     conform-nvim
 
-    mypkgs.otree-nvim
-    mypkgs.xeno-nvim
-    mypkgs.headhunter-nvim
+    master.headhunter-nvim
 
     # Miscellaneous
     oil-nvim
