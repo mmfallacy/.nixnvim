@@ -9,11 +9,11 @@ let
 in
 mnw.lib.wrap pkgs {
   neovim = pkgs.neovim-unwrapped;
-  luaFiles = [ ../../nvimrc/init.lua ];
+  luaFiles = [ ../../../nvimrc/init.lua ];
 
   plugins = plugins // {
     dev.nvimrc = {
-      pure = ../../nvimrc;
+      pure = ../../../nvimrc;
       impure = "/home/mmfallacy/.nixnvim/nvimrc";
     };
   };

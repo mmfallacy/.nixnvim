@@ -36,7 +36,7 @@
             selfpkgs = packages.${system};
           };
           packages.${system} = rec {
-            neovim = import ./nix/packages/neovim.nix {
+            neovim = import ./nix/packages/neovim {
               inherit pkgs extras mnw;
             };
             vimPlugins = extras.mypkgs.vimPlugins;
