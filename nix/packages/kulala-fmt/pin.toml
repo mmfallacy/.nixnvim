@@ -1,0 +1,7 @@
+[src]
+# rev = "v{{version}}"
+version = "2.10.0"
+hash = "sha256-ICxuNVFHMP8qjOMvWSuestsLWBU3bDVMd1D2TCaugNA="
+
+[dependencies]
+x86_64-linux.hash = "sha256-mTq72u6IZfrELZbzEdCEopsqOTn3eODZAGXvKUg8ecI="
