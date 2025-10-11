@@ -103,6 +103,14 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     # Patch shebangs to use shim
     patchShebangs node_modules
 
+    # Run install scripts of dependencies
+    # NOTE: THIS DOES NOT WORK
+    # Unfortunately, `bun install --include-scripts` does not work like `npm rebuild`
+    bun install \
+      --no-progress\
+      --production \
+      --include-scripts
+
     runHook postConfigure
   '';
 
