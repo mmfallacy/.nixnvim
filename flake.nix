@@ -44,6 +44,7 @@
             # Reexport version from extras for .nixconfig to install
             aider = extras.aider;
             gemini-cli = extras.gemini-cli;
+            kulala-fmt = pkgs.callPackage ./nix/packages/kulala-fmt { };
           };
         }
       ) (import systems)
