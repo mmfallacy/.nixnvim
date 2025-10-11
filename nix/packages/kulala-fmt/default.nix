@@ -3,6 +3,7 @@
   fetchFromGitHub,
   bun,
   stdenvNoCC,
+  runtimeShell,
 }:
 let
   pin = lib.importTOML ./pin.toml;
@@ -66,10 +67,33 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   node_modules = dependencies;
 
+  nativeBuildInputs = [ bun ];
+
   configurePhase = ''
     runHook preConfigure
 
-    ln -s ${finalAttrs.node_modules}/node_modules node_modules
+    # Copy dependencies and make modifiable for patching shebangs
+    cp -R ${finalAttrs.node_modules}/node_modules .
+    chmod -R u+w node_modules
+
+    # Since bun should be a drop-in replacement for node,
+    # Create a shim that uses `bun` as `node` so patchShebangs uses `bun`
+    # without a need to pull in the nodejs runtime.
+    mkdir -p shims/bin
+    pushd shims/bin
+
+    cat > node <<'EOF'
+    #!${runtimeShell}
+    exec ${bun}/bin/bun "$@"
+    EOF
+
+    chmod +x node 
+    export PATH="$PATH:$PWD"
+
+    popd
+
+    # Patch shebangs to use shim
+    patchShebangs node_modules
 
     runHook postConfigure
   '';
@@ -78,6 +102,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     runHook preBuild
 
     mkdir -p $out
+    # Use package.json build script (rollup) and pass extra args
+    bun run build --compact
     cp -r . $out
 
     runHook postBuild
