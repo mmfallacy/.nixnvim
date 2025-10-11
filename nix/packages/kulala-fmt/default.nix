@@ -67,7 +67,13 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   node_modules = dependencies;
 
-  nativeBuildInputs = [ bun ];
+  nativeBuildInputs = [
+    bun
+    makeWrapper
+  ];
+
+  # Bun will be used in $out/bin/kulala-fmt
+  propagatedBuildInputs = [ bun ];
 
   configurePhase = ''
     runHook preConfigure
@@ -100,15 +106,34 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   buildPhase = ''
     runHook preBuild
-
-    mkdir -p $out
     # Use package.json build script (rollup) and pass extra args
     bun run build --compact
-    cp -r . $out
 
     runHook postBuild
   '';
 
+  installPhase = ''
+    runHook preInstall
+
+    mkdir -p $out
+    cp package.json $out
+    cp -R dist $out/dist
+    cp -R shims $out/shims
+    cp -R node_modules $out/node_modules
+
+    mkdir -p $out/bin
+    pushd $out/bin
+
+    cat > kulala-fmt <<EOF 
+    #!${runtimeShell}
+    exec ${bun}/bin/bun $out/dist/cli.cjs "\$@"
+    EOF
+    chmod +x kulala-fmt
+
+    popd
+
+    runHook postInstall
+  '';
   meta = {
     description = "Opinionated .http and .rest files linter and formatter";
     homepage = "https://github.com/mistweaverco/kulala-fmt";
