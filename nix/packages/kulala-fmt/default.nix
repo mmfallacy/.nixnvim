@@ -4,6 +4,8 @@
   bun,
   stdenvNoCC,
   runtimeShell,
+  stdenv,
+  makeWrapper,
 }:
 let
   pin = lib.importTOML ./pin.toml;
@@ -134,6 +136,11 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
     runHook postInstall
   '';
+
+  postFixup = ''
+    wrapProgram $out/bin/kulala-fmt --set LD_LIBRARY_PATH "${lib.makeLibraryPath [ stdenv.cc.cc.lib ]}"
+  '';
+
   meta = {
     description = "Opinionated .http and .rest files linter and formatter";
     homepage = "https://github.com/mistweaverco/kulala-fmt";
