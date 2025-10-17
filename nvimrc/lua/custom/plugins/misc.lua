@@ -8,15 +8,11 @@ return {
         { "F" },
         { "t" },
         { "T" },
-
-        -- Remap / to flash jump
-        { "/", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+        { "/" },
+        { "<c-s>", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
         { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
         { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
         { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-
-        -- / is remapped to flash jump hence this is not needed
-        -- { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   } ,
     opts = {
       modes = {
@@ -26,6 +22,11 @@ return {
         },
       },
     },
+
+    config = function(_, opts)
+      require('flash').setup(opts)
+      require('flash').toggle(true)
+    end,
   },
 
   {
