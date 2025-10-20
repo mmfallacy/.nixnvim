@@ -93,7 +93,7 @@ in
     lazydev-nvim
     conform-nvim
 
-    master.headhunter-nvim
+    unstable.headhunter-nvim
 
     # Miscellaneous
     oil-nvim
