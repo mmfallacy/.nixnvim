@@ -24,6 +24,7 @@ M.opts = {
     bash = { 'shfmt' },
     typst = { 'typstyle' },
     json = { 'prettier', 'jq', stop_after_first = true },
+    go = { 'gofmt' },
   },
   default_format_opts = {
     lsp_format = 'fallback',

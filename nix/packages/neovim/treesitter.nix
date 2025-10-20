@@ -45,6 +45,10 @@ let
 
       nix
       http
+      # Go
+      go
+      gomod
+      gosum
     ]
   );
 

@@ -122,6 +122,8 @@ return function(_, _)
       ['tinymist'] = {},
       -- Markdown
       ['marksman'] = {},
+      -- Go
+      ['gopls'] = {},
     }
 
   lsp_setup_handlers(handlers, global)
