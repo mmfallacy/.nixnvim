@@ -1,9 +1,16 @@
 { pkgs }:
+let
+  hasFile = file: dir: dir |> builtins.readDir |> builtins.hasAttr file;
+  hasDefault = hasFile "default.nix";
+in
 ./.
 |> builtins.readDir
 |> pkgs.lib.mapAttrs' (
   path: type:
-  if type != "regular" || path == "default.nix" then
+  # TODO: Refactor and clean this up
+  if type == "directory" && hasDefault (./. + "/${path}") then
+    pkgs.lib.nameValuePair path (pkgs.callPackage (./. + "/${path}") { })
+  else if type != "regular" || path == "default.nix" then
     pkgs.lib.nameValuePair path null
   else
     let
