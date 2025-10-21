@@ -7,6 +7,11 @@ local M = {
       show_hidden = true,
     },
     watch_for_changes = true,
+
+    keymaps = {
+      ['gy'] = 'actions.copy_to_system_clipboard',
+      ['gp'] = 'actions.paste_from_system_clipboard',
+    },
   },
 }
 
