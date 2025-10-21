@@ -96,7 +96,7 @@ in
     unstable.headhunter-nvim
 
     # Miscellaneous
-    oil-nvim
+    mypkgs.oil-nvim
     snipe-nvim
     vim-sleuth
     snacks-nvim
