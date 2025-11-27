@@ -28,6 +28,7 @@ mnw.lib.wrap pkgs {
       fd
 
       websocat # Required by typst-preview-nvim
+      lsof # Required by opencode.nvim
     ]
     ++ lsps;
 

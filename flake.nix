@@ -28,6 +28,7 @@
 
             aider = pkgs-unstable.aider-chat;
             gemini-cli = pkgs-unstable.gemini-cli;
+            opencode = pkgs-unstable.opencode;
           };
         in
         rec {
@@ -45,6 +46,7 @@
             aider = extras.aider;
             gemini-cli = extras.gemini-cli;
             kulala-fmt = pkgs.callPackage ./nix/packages/kulala-fmt { };
+            opencode = extras.opencode;
           };
         }
       ) (import systems)

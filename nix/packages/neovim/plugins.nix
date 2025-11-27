@@ -43,10 +43,11 @@ let
     img-clip-nvim
     nui-nvim
 
-    unstable.codecompanion-nvim
+    master.codecompanion-nvim
     unstable.codecompanion-spinner-nvim
     unstable.codecompanion-lualine-nvim
-    unstable.vectorcode-nvim
+
+    unstable.opencode-nvim
   ];
 
   cmp = [
