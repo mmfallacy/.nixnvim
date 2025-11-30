@@ -28,7 +28,7 @@
 
             aider = pkgs-unstable.aider-chat;
             gemini-cli = pkgs-unstable.gemini-cli;
-            opencode = pkgs-unstable.opencode;
+            opencode = pkgs-unstable.callPackage ./nix/packages/opencode { };
           };
         in
         rec {
