@@ -2,6 +2,8 @@
   opencode,
   stdenvNoCC,
   makeWrapper,
+  lib,
+  wrapperArgs ? [ ],
 }:
 stdenvNoCC.mkDerivation {
   name = "opencode-wrapped";
@@ -15,6 +17,7 @@ stdenvNoCC.mkDerivation {
     cp -r $src/opencode.json $out/share/opencode
 
     makeWrapper ${opencode}/bin/opencode $out/bin/opencode \
-      --set XDG_CONFIG_HOME "$out/share"
+      --set XDG_CONFIG_HOME "$out/share" \
+      ${lib.escapeShellArgs wrapperArgs}
   '';
 }
