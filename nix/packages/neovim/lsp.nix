@@ -12,7 +12,7 @@ with pkgs;
   stylua
 
   # Nix
-  extras.nil
+  nil
   nixd
   alejandra
   unstable.nixfmt-rfc-style
