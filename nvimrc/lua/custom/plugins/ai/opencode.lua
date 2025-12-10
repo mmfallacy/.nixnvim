@@ -11,7 +11,7 @@ return {
           terminal = {
             keys = {
               term_normal = {
-                '<esc><esc>',
+                '<leader>jk',
                 function()
                   return '<C-\\><C-n>'
                 end,
