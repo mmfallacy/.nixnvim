@@ -28,7 +28,6 @@ mkShell {
     [
       mnw
       mnwcd
-      selfpkgs.gemini-cli
       selfpkgs.opencode
     ];
 
