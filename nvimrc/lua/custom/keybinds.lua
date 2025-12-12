@@ -32,3 +32,7 @@ map('n', '<C-Up>', ':resize +2<CR>', silent_noremap)
 map('n', '<C-Down>', ':resize -2<CR>', silent_noremap)
 map('n', '<C-Left>', ':vertical resize -2<CR>', silent_noremap)
 map('n', '<C-Right>', ':vertical resize +2<CR>', silent_noremap)
+
+-- Swap p and P behavior so p does not override register.
+map({ 'n', 'v' }, 'p', 'P', silent_noremap)
+map({ 'n', 'v' }, 'P', 'p', silent_noremap)
