@@ -11,5 +11,12 @@
       }
     }
   },
+  "permission": {
+    "edit": "ask",
+    "bash": "ask",
+    "webfetch": "allow",
+    "doom_loop": "ask",
+    "external_directory": "deny"
+  },
   "model": "google/gemini-2.5-flash"
 }
