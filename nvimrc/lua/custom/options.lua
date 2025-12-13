@@ -53,3 +53,7 @@ vim.o.history = 1024
 vim.o.backup = false
 vim.o.writebackup = false
 vim.o.updatetime = 250
+
+-- Disable fold on startup
+vim.opt.foldenable = false
+vim.opt.foldlevel = 20
