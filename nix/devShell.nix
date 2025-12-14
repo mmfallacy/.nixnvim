@@ -24,11 +24,15 @@ mkShell {
       mnwcd = pkgs.writeShellScriptBin "mnwcd" ''
         pushd "$1" && ${bin mnw} . "''${@:2}" && popd
       '';
+
+      opencode = selfpkgs.opencode.override {
+        cfgLocation = "/home/mmfallacy/.nixnvim/";
+      };
+
     in
     [
       mnw
       mnwcd
-      selfpkgs.opencode
+      opencode
     ];
-
 }
