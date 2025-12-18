@@ -4,7 +4,8 @@
   makeWrapper,
   lib,
   wrapperArgs ? [ ],
-  cfgLocation ? "${placeholder "out"}/share",
+  # Mock XDG_CONFIG_HOME to allow opencode to use ../../opencode as global overridable configuration.
+  xdgConfig ? "${placeholder "out"}/share",
 }:
 stdenvNoCC.mkDerivation {
   name = "opencode-wrapped";
@@ -19,7 +20,7 @@ stdenvNoCC.mkDerivation {
     cp -r $src $out/share/
 
     makeWrapper ${opencode}/bin/opencode $out/bin/opencode \
-      --set XDG_CONFIG_HOME "${cfgLocation}" \
+      --set XDG_CONFIG_HOME "${xdgConfig}" \
       ${lib.escapeShellArgs wrapperArgs} \
       --run 'echo "$XDG_CACHE_HOME"'
   '';
