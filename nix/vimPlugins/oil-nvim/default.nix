@@ -2,18 +2,13 @@
   luaPackages,
   neovimUtils,
   fetchFromGitHub,
-  fetchurl,
 }:
 neovimUtils.buildNeovimPlugin {
   luaAttr = luaPackages.oil-nvim.overrideAttrs rec {
     version = "scm-1";
     rockspecVersion = version;
-    knownRockspec =
-      (fetchurl {
-        url = "mirror://luarocks/oil.nvim-scm-1.rockspec";
-        sha256 = "sha256-ZT+expuppTD/NP57dls/BMSwUu6VBOSfEw8RQe4vqv0=";
-
-      }).outPath;
+    # When updating rev, update git_rev in rockspec too!
+    knownRockspec = ./oil.nvim-scm-1.rockspec;
     src = fetchFromGitHub {
       owner = "stevearc";
       repo = "oil.nvim";
