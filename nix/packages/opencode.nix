@@ -14,6 +14,8 @@ stdenvNoCC.mkDerivation rec {
   src = ../../opencode;
 
   installPhase = ''
+    runHook preInstall
+
     mkdir -p $out/bin
     mkdir -p $out/share
 
@@ -22,5 +24,7 @@ stdenvNoCC.mkDerivation rec {
     makeWrapper ${opencode}/bin/opencode $out/bin/opencode \
       --set XDG_CONFIG_HOME "${xdgConfig}" \
       ${lib.escapeShellArgs wrapperArgs}
+
+    runHook postInstall
   '';
 }
