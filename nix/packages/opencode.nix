@@ -13,17 +13,14 @@ stdenvNoCC.mkDerivation rec {
 
   src = ../../opencode;
 
-  meta.mainProgram = "opencode";
-
   installPhase = ''
     mkdir -p $out/bin
     mkdir -p $out/share
 
     cp -r $src $out/share/
 
-    makeWrapper ${opencode}/bin/opencode $out/bin/${meta.mainProgram} \
+    makeWrapper ${opencode}/bin/opencode $out/bin/opencode \
       --set XDG_CONFIG_HOME "${xdgConfig}" \
-      ${lib.escapeShellArgs wrapperArgs} \
-      --run 'echo "$XDG_CACHE_HOME"'
+      ${lib.escapeShellArgs wrapperArgs}
   '';
 }
