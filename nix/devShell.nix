@@ -26,7 +26,7 @@ mkShell {
       '';
 
       opencode = selfpkgs.opencode.override {
-        cfgLocation = "/home/mmfallacy/.nixnvim/";
+        xdgConfig = "/home/mmfallacy/.nixnvim/";
       };
 
     in
