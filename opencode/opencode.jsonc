@@ -19,12 +19,12 @@
             }
           }
         },
-        "gemini-3-pro": {}
+        "gemini-3-pro-preview": {}
       },
       "options": {
         "apiKey": "{env:GEMINI_API_KEY}"
       },
-      "whitelist": ["gemini-2.5-flash-lite", "gemini-2.5-flash", "gemini-3-pro"]
+      "whitelist": ["gemini-2.5-flash-lite", "gemini-2.5-flash", "gemini-3-pro-preview"]
     }
   },
   "enabled_providers": ["google"],
