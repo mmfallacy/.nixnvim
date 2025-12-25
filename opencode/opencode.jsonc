@@ -35,7 +35,7 @@
     "doom_loop": "ask",
     "external_directory": "deny"
   },
-  "model": "google/gemini-2.5-flash-lite",
+  "model": "google/gemini-2.5-flash",
   "experimental": {
     "chatMaxRetries": 5,
   },
