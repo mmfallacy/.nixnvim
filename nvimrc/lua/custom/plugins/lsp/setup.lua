@@ -97,6 +97,7 @@ return function(_, _)
       ['vtsls'] = {},
       ['eslint'] = {},
       ['cssls'] = {},
+      ['jsonls'] = {},
       ['emmet_language_server'] = {
         init_options = {
           syntaxProfiles = {

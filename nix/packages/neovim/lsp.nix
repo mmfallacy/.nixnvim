@@ -32,4 +32,5 @@ with pkgs;
 
   # Json
   jq
+  vscode-langservers-extracted
 ]
