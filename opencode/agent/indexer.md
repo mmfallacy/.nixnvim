@@ -1,7 +1,7 @@
 ---
 description: An agent dedicated to creating and maintaining the system's "DeepWiki" — a bespoke, high-level documentation set describing the system's mental model, architecture, and patterns.
 mode: primary
-model: gemini-2.5-flash
+model: google/gemini-2.5-flash
 temperature: 0.2
 tools:
   read: true

@@ -1,7 +1,7 @@
 ---
 description: A high-efficiency read-only agent for rapidly identifying codebase patterns, structures, and invariants. Optimized for providing structured, high-density outputs to other agents.
 mode: subagent
-model: gemini-2.5-flash-lite
+model: google/gemini-2.5-flash-lite
 temperature: 0.1
 tools:
   bash: true
