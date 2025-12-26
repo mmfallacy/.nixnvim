@@ -4,27 +4,33 @@
     "google": {
       "models": {
         "gemini-2.5-flash-lite": {
-          "options":{
+          "options": {
             "thinkingConfig": {
               "thinkingBudget": 8192,
-              "includeThoughts": true,
+              "includeThoughts": true
             }
           }
         },
         "gemini-2.5-flash": {
-          "options":{
+          "options": {
             "thinkingConfig": {
               "thinkingBudget": 16384,
-              "includeThoughts": true,
+              "includeThoughts": true
             }
           }
         },
+        "gemini-2.5-pro": {},
         "gemini-3-pro-preview": {}
       },
       "options": {
         "apiKey": "{env:GEMINI_API_KEY}"
       },
-      "whitelist": ["gemini-2.5-flash-lite", "gemini-2.5-flash", "gemini-3-pro-preview"]
+      "whitelist": [
+        "gemini-2.5-flash-lite",
+        "gemini-2.5-flash",
+        "gemini-2.5-pro",
+        "gemini-3-pro-preview"
+      ]
     }
   },
   "enabled_providers": ["google"],
@@ -37,6 +43,6 @@
   },
   "model": "google/gemini-2.5-flash",
   "experimental": {
-    "chatMaxRetries": 5,
-  },
+    "chatMaxRetries": 5
+  }
 }
