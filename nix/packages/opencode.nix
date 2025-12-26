@@ -23,6 +23,7 @@ stdenvNoCC.mkDerivation rec {
 
     makeWrapper ${opencode}/bin/opencode $out/bin/opencode \
       --set XDG_CONFIG_HOME "${xdgConfig}" \
+      --set OPENCODE_DISABLE_LSP_DOWNLOAD true \
       ${lib.escapeShellArgs wrapperArgs}
 
     runHook postInstall
