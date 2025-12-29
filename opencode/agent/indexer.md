@@ -18,6 +18,7 @@ permission:
     "rg *": allow
     "head *": allow
     "tail *": allow
+    "mkdir *": allow
     "*": deny
   write:
     "docs/index/*": allow
