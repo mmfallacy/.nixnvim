@@ -25,14 +25,21 @@ mkShell {
         pushd "$1" && ${bin mnw} . "''${@:2}" && popd
       '';
 
-      opencode = selfpkgs.opencode.override {
-        xdgConfig = "/home/mmfallacy/.nixnvim/";
-      };
+      ocdv =
+        (selfpkgs.opencode.override {
+          xdgConfig = "/home/mmfallacy/.nixnvim/";
+        }).overrideAttrs
+          (old: {
+            postInstall = ''
+              ${old.postInstall or ""}
+              mv $out/bin/opencode $out/bin/ocdv
+            '';
+          });
 
     in
     [
       mnw
       mnwcd
-      opencode
+      ocdv
     ];
 }
