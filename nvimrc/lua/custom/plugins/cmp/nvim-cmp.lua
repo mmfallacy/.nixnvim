@@ -21,6 +21,8 @@ function M.config(_, _opts)
 
   -- Load friendly-snippets via LuaSnip
   require('luasnip.loaders.from_vscode').lazy_load()
+  -- Load custom snippets via LuaSnip
+  require('custom.plugins.cmp.snippets').load()
 
   local opts = _opts or {}
   -- menu,menuone default nvim-cmp
