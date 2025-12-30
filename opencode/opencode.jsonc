@@ -2,52 +2,77 @@
   "$schema": "https://opencode.ai/config.json",
   "agent": {
     "build": {
-      "model": "google/gemini-3-flash-preview"
+      "model": "google/gemini-3-flash-preview",
     },
   },
   "provider": {
+    "minimax": {
+      "options": {
+        "apiKey": "{env:MINIMAX_API_KEY}",
+      },
+      "models": {
+        "MiniMax-M2.1": {},
+      },
+      "whitelist": ["MiniMax-M2.1"],
+    },
     "google": {
       "models": {
         "gemini-2.5-flash-lite": {
           "options": {
             "thinkingConfig": {
               "thinkingBudget": 8192,
-              "includeThoughts": true
-            }
-          }
+              "includeThoughts": true,
+            },
+          },
         },
         "gemini-2.5-flash": {
           "options": {
             "thinkingConfig": {
               "thinkingBudget": 16384,
-              "includeThoughts": true
-            }
-          }
+              "includeThoughts": true,
+            },
+          },
         },
-        "gemini-3-flash-preview": {},
-        "gemini-3-pro-preview": {}
+        "gemini-3-flash-preview": {
+          "limit": {
+            "context": 200000,
+            "output": 65536,
+          },
+          "options": {
+            "thinkingConfig": {
+              "thinkingBudget": 16384,
+              "includeThoughts": true,
+            },
+          },
+        },
+        "gemini-3-pro-preview": {
+          "limit": {
+            "context": 200000,
+            "output": 65536,
+          },
+        },
       },
       "options": {
-        "apiKey": "{env:GEMINI_API_KEY}"
+        "apiKey": "{env:GEMINI_API_KEY}",
       },
       "whitelist": [
         "gemini-2.5-flash-lite",
         "gemini-2.5-flash",
         "gemini-3-flash-preview",
-        "gemini-3-pro-preview"
-      ]
-    }
+        "gemini-3-pro-preview",
+      ],
+    },
   },
-  "enabled_providers": ["google"],
+  "enabled_providers": ["google", "minimax"],
   "permission": {
     "edit": "ask",
     "bash": "ask",
     "webfetch": "allow",
     "doom_loop": "ask",
-    "external_directory": "deny"
+    "external_directory": "deny",
   },
-  "model": "google/gemini-2.5-flash",
+  "model": "minimax/MiniMax-M2.1",
   "experimental": {
-    "chatMaxRetries": 5
-  }
+    "chatMaxRetries": 5,
+  },
 }
