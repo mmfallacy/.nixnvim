@@ -37,6 +37,8 @@ M.opts.formatters_by_ft.typescript = { 'biome_from_path', 'prettierd', 'prettier
 
 M.opts.formatters_by_ft.typescriptreact = M.opts.formatters_by_ft.typescript
 
+M.opts.formatters_by_ft.jsonc = M.opts.formatters_by_ft.json
+
 -- Instantiate prettier for markdown.
 -- https://github.com/stevearc/conform.nvim/issues/339
 local function create_prettier_md()
