@@ -49,6 +49,9 @@ let
       go
       gomod
       gosum
+
+      #Svelte
+      svelte
     ]
   );
 

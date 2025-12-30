@@ -67,6 +67,8 @@ local ensure_installed = {
   'go',
   'gomod',
   'gosum',
+  -- Svelte
+  'svelte',
 }
 
 -- This function checks if ensure_installed matches the available parsers. If not, it warns the user.

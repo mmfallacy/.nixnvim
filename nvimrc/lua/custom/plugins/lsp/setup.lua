@@ -125,6 +125,9 @@ return function(_, _)
       ['marksman'] = {},
       -- Go
       ['gopls'] = {},
+
+      -- Svelte
+      ['svelte'] = {},
     }
 
   lsp_setup_handlers(handlers, global)
