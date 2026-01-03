@@ -29,13 +29,14 @@ M.opts = {
   default_format_opts = {
     lsp_format = 'fallback',
   },
-  format_on_save = { timeout_ms = 500 },
+  format_on_save = { timeout_ms = 2500 },
   formatters = {},
 }
 
 M.opts.formatters_by_ft.typescript = { 'biome_from_path', 'prettierd', 'prettier', stop_after_first = true }
 
 M.opts.formatters_by_ft.typescriptreact = M.opts.formatters_by_ft.typescript
+M.opts.formatters_by_ft.svelte = M.opts.formatters_by_ft.typescript
 
 M.opts.formatters_by_ft.jsonc = M.opts.formatters_by_ft.json
 
