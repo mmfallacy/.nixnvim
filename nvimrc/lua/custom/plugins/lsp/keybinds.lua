@@ -15,9 +15,14 @@ return function(_, bufnr)
 
   local builtins = require('telescope.builtin')
 
-  bufmap('<leader>dw', builtins.diagnostics)
+  bufmap('<leader>dw', function()
+    builtins.diagnostics({ severity_limit = vim.diagnostic.severity.WARN })
+  end)
   bufmap('<leader>dd', function()
-    builtins.diagnostics({ bufnr = 0 })
+    builtins.diagnostics({
+      severity_limit = vim.diagnostic.severity.WARN,
+      bufnr = 0,
+    })
   end)
 
   bufmap('gd', builtins.lsp_definitions)
