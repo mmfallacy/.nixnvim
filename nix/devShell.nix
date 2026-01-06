@@ -41,5 +41,7 @@ mkShell {
       mnw
       mnwcd
       ocdv
+
+      selfpkgs.serena
     ];
 }
