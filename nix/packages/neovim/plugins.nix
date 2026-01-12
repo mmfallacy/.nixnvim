@@ -38,16 +38,6 @@ let
   ];
 
   ai = [
-    avante-nvim
-    dressing-nvim
-    img-clip-nvim
-    nui-nvim
-
-    master.codecompanion-nvim
-    unstable.codecompanion-spinner-nvim
-    unstable.codecompanion-lualine-nvim
-
-    unstable.opencode-nvim
   ];
 
   cmp = [
