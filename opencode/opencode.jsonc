@@ -36,7 +36,7 @@
           },
           "options": {
             "thinkingConfig": {
-              "thinkingBudget": 16384,
+              "thinkingLevel": "medium",
               "includeThoughts": true,
             },
           },
