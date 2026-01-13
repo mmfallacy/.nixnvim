@@ -38,6 +38,7 @@ let
   ];
 
   ai = [
+    minuet-ai-nvim
   ];
 
   cmp = [
