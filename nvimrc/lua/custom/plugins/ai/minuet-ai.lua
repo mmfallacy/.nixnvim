@@ -20,12 +20,12 @@ M.opts = {
 
 M.opts.provider_options = {
   openai_compatible = {
-    api_key = 'GROK_API_KEY',
-    end_point = 'https://api.x.ai/v1/chat/completions',
-    model = 'grok-4-1-fast-non-reasoning',
-    name = 'Grok Code Fast 1',
+    api_key = 'MIMO_API_KEY',
+    end_point = 'https://api.xiaomimimo.com/v1/chat/completions',
+    model = 'mimo-v2-flash',
+    name = 'MiMo V2 Flash',
     optional = {
-      temperature = 0.5,
+      temperature = 0.2,
       max_output_tokens = 256,
       reasoning = {
         effort = 'minimal',
