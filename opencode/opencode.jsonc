@@ -76,6 +76,7 @@
     "webfetch": "allow",
     "doom_loop": "ask",
     "external_directory": "deny",
+    "lsp": "allow",
   },
   "model": "minimax/MiniMax-M2.1",
   "lsp": {},
