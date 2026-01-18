@@ -26,3 +26,4 @@
 - Never commit secrets, keys, or credentials. Warn users if they request this.
 - Write idempotent, reversible operations where possible.
 - If no project architecture has been established yet, adopt a vertically-sliced architecture. Split codebase into features instead of domain.
+- If LSPs are available, use LSPs over Read and Grep to fetch related code blocks

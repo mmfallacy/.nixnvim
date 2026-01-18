@@ -43,5 +43,9 @@ mkShell {
       ocdv
 
       selfpkgs.serena
+
+      # Lsps
+      lua-language-server
+      stylua
     ];
 }
