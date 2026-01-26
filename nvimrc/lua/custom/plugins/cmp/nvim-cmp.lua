@@ -68,7 +68,7 @@ function M.config(_, _opts)
         snip.expand()
       else
         cmp.confirm({
-          select = true,
+          select = false,
           behavior = cmp.ConfirmBehavior.Replace,
         })
       end
