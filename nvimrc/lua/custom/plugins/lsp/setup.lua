@@ -128,6 +128,9 @@ return function(_, _)
 
       -- Svelte
       ['svelte'] = {},
+
+      -- PSQL
+      ['postgres_lsp'] = {},
     }
 
   lsp_setup_handlers(handlers, global)
