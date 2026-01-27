@@ -28,3 +28,10 @@ vim.api.nvim_create_autocmd('FileType', {
     end, { buffer = true })
   end,
 })
+
+vim.filetype.add({
+  pattern = {
+    -- For .env.local, .env.production, etc.
+    ['.env.*'] = 'sh',
+  },
+})
