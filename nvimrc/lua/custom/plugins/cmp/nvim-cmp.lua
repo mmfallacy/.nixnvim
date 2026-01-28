@@ -64,13 +64,18 @@ function M.config(_, _opts)
     ['<C-y>'] = cmp.mapping(function(fallback)
       if not cmp.visible() then
         fallback()
-      elseif snip.expandable() then
-        snip.expand()
       else
         cmp.confirm({
-          select = false,
-          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
         })
+      end
+    end),
+
+    ['<C-l>'] = cmp.mapping(function(fallback)
+      if not cmp.visible() then
+        fallback()
+      elseif snip.expandable() then
+        snip.expand()
       end
     end),
 
