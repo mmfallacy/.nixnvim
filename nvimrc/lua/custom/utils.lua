@@ -44,4 +44,16 @@ function M.isMNWDevMode()
   return false
 end
 
+-- Chains all functions provided.
+function M.chain(...)
+  local fns = { ... }
+  return function(...)
+    for _, fn in ipairs(fns) do
+      if fn then
+        fn(...)
+      end
+    end
+  end
+end
+
 return M
