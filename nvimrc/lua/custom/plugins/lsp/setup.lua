@@ -110,7 +110,12 @@ return function(_, _)
           },
         },
       },
-      ['tailwindcss'] = {},
+      ['tailwindcss'] = {
+        on_attach = function(_, bufnr)
+          -- Disable cssls in place of tailwindcss
+          vim.lsp.get_clients({ bufnr = bufnr, name = 'cssls' })[1].stop()
+        end,
+      },
       -- Protobufs
       ['buf_ls'] = {},
 
