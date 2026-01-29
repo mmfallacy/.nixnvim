@@ -1,3 +1,9 @@
+---@class mnw
+---@field configDir string
+--- mnw table is injected by Gerg-L/mnw on derivation build
+---@diagnostic disable-next-line: undefined-global
+local mnw = mnw
+
 if mnw == nil then
   return vim.notify(
     [[ You are currently running this configuration
