@@ -1,3 +1,4 @@
+local utils = require('custom.utils')
 -- Sets up lsp servers based on handlers table
 local function lsp_setup_handlers(handlers, global)
   local lsp = require('lspconfig')
@@ -6,6 +7,8 @@ local function lsp_setup_handlers(handlers, global)
   for server, _opts in pairs(handlers) do
     -- Extend handler-specific opts with global
     local opts = vim.tbl_deep_extend('force', global, _opts)
+    opts.on_attach = utils.chain(global.on_attach, _opts.on_attach)
+
     lsp[server].setup(opts)
     -- Track servers that are installed!
     if vim.fn.executable(lsp[server].cmd[1]) == 1 then
