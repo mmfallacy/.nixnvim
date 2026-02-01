@@ -74,7 +74,12 @@ let
 
 in
 {
-  start = [ lazy-nvim ];
+  # mkForce so opt dependencies don't get resolved!
+  # The following changes resolves plugins.opt dependencies and attaches them to plugins.start;
+  # https://github.com/Gerg-L/mnw/commit/c5543447e4240397ab320d26a72942f730a9c18b#diff-08cdb18896aca74e109af24b3eaf039e22765642a2a53b5c6a16b0df91c5023bR401
+  startAttrs = pkgs.lib.mkForce {
+    "lazy.nvim" = lazy-nvim;
+  };
   # Place all in opt so lazy-nvim sees it.
   opt = [
     # Common Dependencies
