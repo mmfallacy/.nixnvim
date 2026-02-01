@@ -21,55 +21,19 @@
       },
       "whitelist": ["grok-4-1-fast-non-reasoning"],
     },
-    "google": {
-      "models": {
-        "gemini-2.5-flash-lite": {
-          "options": {
-            "thinkingConfig": {
-              "thinkingBudget": 8192,
-              "includeThoughts": true,
-            },
-          },
-        },
-        "gemini-2.5-flash": {
-          "options": {
-            "thinkingConfig": {
-              "thinkingBudget": 16384,
-              "includeThoughts": true,
-            },
-          },
-        },
-        "gemini-3-flash-preview": {
-          "limit": {
-            "context": 200000,
-            "output": 65536,
-          },
-          "options": {
-            "thinkingConfig": {
-              "thinkingLevel": "medium",
-              "includeThoughts": true,
-            },
-          },
-        },
-        "gemini-3-pro-preview": {
-          "limit": {
-            "context": 200000,
-            "output": 65536,
-          },
-        },
-      },
+    "opencode": {
       "options": {
-        "apiKey": "{env:GEMINI_API_KEY}",
+        "apiKey": "{env:OPENCODE_ZEN_API_KEY}",
       },
       "whitelist": [
-        "gemini-2.5-flash-lite",
-        "gemini-2.5-flash",
-        "gemini-3-flash-preview",
-        "gemini-3-pro-preview",
+        "glm-4.7-free",
+        "big-pickle",
+        "kimi-k2.5-free",
+        "minimax-m2.1-free",
       ],
     },
   },
-  "enabled_providers": ["google", "minimax", "xai"],
+  "enabled_providers": ["opencode", "minimax", "xai"],
   "permission": {
     "edit": "ask",
     "bash": "ask",
