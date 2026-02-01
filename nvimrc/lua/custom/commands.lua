@@ -16,22 +16,3 @@ vim.api.nvim_create_autocmd('User', {
     vim.api.nvim_set_hl(0, 'ColorColumn', { bg = palette.base02 })
   end,
 })
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'qf',
-  callback = function()
-    vim.keymap.set('n', 'dd', function()
-      local qf = vim.fn.getqflist()
-      local idx = vim.fn.line('.')
-      table.remove(qf, idx)
-      vim.fn.setqflist(qf, 'r')
-    end, { buffer = true })
-  end,
-})
-
-vim.filetype.add({
-  pattern = {
-    -- For .env.local, .env.production, etc.
-    ['.env.*'] = 'sh',
-  },
-})
