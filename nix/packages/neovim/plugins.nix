@@ -16,9 +16,7 @@ let
   treesitter = [
     nvim-treesitter
     nvim-treesitter-context
-  ]
-  # NOTE: Parsers are handled by ./treesiter.nix.
-  ++ import ./treesitter.nix { inherit pkgs extras; };
+  ];
 
   telescope = [
     telescope-nvim
@@ -72,14 +70,31 @@ let
     nvim-web-devicons
   ];
 
+  # Normalizes list of parsers into attrset for startAttrs
+  normalizeParsers =
+    parsers:
+    pkgs.lib.pipe parsers [
+      (map (p: {
+        name = p.name;
+        value = p;
+      }))
+      pkgs.lib.listToAttrs
+    ];
+
+  # NOTE: Parsers are handled by ./treesiter.nix.
+  parsers = normalizeParsers (import ./treesitter.nix { inherit pkgs extras; });
+
+  startAttrs = {
+    "lazy.nvim" = lazy-nvim;
+  }
+  # parsers are now handled like vim plugins, placed into opt/start
+  // parsers;
 in
 {
   # mkForce so opt dependencies don't get resolved!
   # The following changes resolves plugins.opt dependencies and attaches them to plugins.start;
   # https://github.com/Gerg-L/mnw/commit/c5543447e4240397ab320d26a72942f730a9c18b#diff-08cdb18896aca74e109af24b3eaf039e22765642a2a53b5c6a16b0df91c5023bR401
-  startAttrs = pkgs.lib.mkForce {
-    "lazy.nvim" = lazy-nvim;
-  };
+  startAttrs = pkgs.lib.mkForce (builtins.break startAttrs);
   # Place all in opt so lazy-nvim sees it.
   opt = [
     # Common Dependencies
