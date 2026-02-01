@@ -37,7 +37,7 @@ end
 local rtp_paths = vim.api.nvim_list_runtime_paths()
 function M.isMNWDevMode()
   for _, path in ipairs(rtp_paths) do
-    if string.match(path, '%.nixnvim/nvimrc') then
+    if string.match(path, '/home/.*/%.nixnvim/nvimrc') then
       return true
     end
   end
