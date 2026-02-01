@@ -6,7 +6,7 @@
   extras,
 }:
 let
-  inherit (pkgs.vimPlugins) nvim-treesitter;
+  inherit (extras.pkgs-unstable.vimPlugins) nvim-treesitter;
   # nvim-treesitter provides us a neat way of creating a derivation of nvim-treesitter
   # either withAllGrammars or via withPlugins where we specify the grammars we include.
   TSwithAllGrammars = nvim-treesitter.withAllGrammars;
@@ -24,7 +24,6 @@ let
       javascript
       jsdoc
       json
-      jsonc
       lua
       luadoc
       luap
