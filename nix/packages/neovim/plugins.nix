@@ -70,25 +70,15 @@ let
     nvim-web-devicons
   ];
 
-  # Normalizes list of parsers into attrset for startAttrs
-  normalizeParsers =
-    parsers:
-    pkgs.lib.pipe parsers [
-      (map (p: {
-        name = p.name;
-        value = p;
-      }))
-      pkgs.lib.listToAttrs
-    ];
-
-  # NOTE: Parsers are handled by ./treesiter.nix.
-  parsers = normalizeParsers (import ./treesitter.nix { inherit pkgs extras; });
-
   startAttrs = {
     "lazy.nvim" = lazy-nvim;
-  }
-  # parsers are now handled like vim plugins, placed into opt/start
-  // parsers;
+
+    # Symlink parsers into one plugins.startAttrs entry
+    "nvim-treesitter-grammars" = pkgs.symlinkJoin {
+      name = "nvim-treesitter-grammars";
+      paths = import ./treesitter.nix { inherit pkgs extras; };
+    };
+  };
 in
 {
   # mkForce so opt dependencies don't get resolved!
