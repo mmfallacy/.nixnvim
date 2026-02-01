@@ -44,6 +44,21 @@ function M.isMNWDevMode()
   return false
 end
 
+---@return string|nil, boolean
+function M.get_nvimrc_from_rtp()
+  local ret = nil
+  for _, path in ipairs(rtp_paths) do
+    if string.match(path, '.*/nvimrc') then
+      -- assertion failed,  two or more matching nvimrc in rtp_path
+      if ret ~= nil then
+        return nil, false
+      end
+      ret = path
+    end
+  end
+  return ret, true
+end
+
 -- Chains all functions provided.
 function M.chain(...)
   local fns = { ... }
