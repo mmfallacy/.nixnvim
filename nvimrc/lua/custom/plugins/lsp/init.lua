@@ -37,6 +37,11 @@ M.config =
   function(_, opts)
     local installed = {}
 
+    vim.lsp.config('*', {
+      capabilities = require('custom.plugins.lsp.default_capabilities')(),
+      on_attach = require('custom.plugins.lsp.default_on_attach'),
+    })
+
     for _, server in ipairs(opts.enabled) do
       if vim.fn.executable(vim.lsp.config[server].cmd[1]) == 1 then
         table.insert(installed, server)
