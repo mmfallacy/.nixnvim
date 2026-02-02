@@ -68,8 +68,12 @@ Every response MUST include a permalink of the sources:
 
 ```
 Either [MARKDOWN CODEBLOCK WITH LANGUAGE IDENTIFIER] or [CONCISE ANSWER TO QUESTION]
-**Sources**: ([source](https://github.com/owner/repo/blob/<sha>/path#L10-L20), [docs-source]a(https://docs.example.com/path))
 **Explanation**: [3 to 5 lines of explanation].
+
+**Sources**:
+- [source]: https://github.com/owner/repo/blob/<sha>/path#L10-L20
+- [docs-source]: https://docs.example.com/path
+...
 ```
 
 ## When to Use Subagents
