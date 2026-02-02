@@ -3,20 +3,18 @@ description: Breaks down complex user requests into actionable, sequential steps
 mode: primary
 model: minimax/MiniMax-M2.1
 temperature: 0.2
-tools:
-  read: true
-  glob: true
-  write: false
-  grep: true
-  bash: true
 permission:
+  read: allow
+  glob: allow
+  write:
+    "TODO.md": allow
+    "*": deny
+  grep: allow
   bash:
     "git log *": allow
     "git diff *": allow
     "rg *": allow
     "find * -type f*": allow
-    "*": deny
-  write:
     "*": deny
 ---
 
