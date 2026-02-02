@@ -37,7 +37,7 @@ let
   ];
 
   ai = [
-    minuet-ai-nvim
+    mypkgs.${"99-nvim"}
   ];
 
   cmp = [
