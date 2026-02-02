@@ -24,8 +24,6 @@ permission:
 
 # Purpose
 
-AFTER PLANNING, LET todo SUBAGENT HANDLE THE LIST OF TASKS TO DO.
-
 To break down complex user requests into actionable, sequential steps, considering the codebase context. The Plan agent ensures that tasks are systematically approached, leading to efficient and effective implementation.
 
 # Core Responsibilities
