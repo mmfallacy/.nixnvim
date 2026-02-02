@@ -4,7 +4,7 @@ description: |
   "quick" for basic, "medium" for moderate, "comprehensive" for comprehensive analysis. 
   Main goal is to answer questions "What lines does X?", "What files are involved with feature Y?".
 mode: subagent
-model: google/gemini-2.5-flash-lite
+model: opencode/minimax-m2.1-free
 temperature: 0.1
 permission:
   edit: deny
