@@ -59,6 +59,12 @@
       "enabled": false,
     },
   },
+  "agent": {
+    // Use explorer agent instead!
+    "explore": {
+      "disable": true,
+    },
+  },
   "experimental": {
     "chatMaxRetries": 5,
   },
