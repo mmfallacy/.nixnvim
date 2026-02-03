@@ -12,8 +12,8 @@
       mnw,
       ...
     }@inputs:
-    builtins.foldl' (a: b: a // b) { } (
-      builtins.map (
+    let
+      mapped = builtins.map (
         system:
         let
           pkgs = nixpkgs-stable.legacyPackages.${system};
@@ -51,8 +51,11 @@
             serena = extras.serena;
           };
         }
-      ) (import systems)
-    );
+      ) (import systems);
+    in
+    builtins.foldl' nixpkgs-stable.lib.recursiveUpdate {
+      inherit mapped;
+    } mapped;
 
   inputs = {
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
