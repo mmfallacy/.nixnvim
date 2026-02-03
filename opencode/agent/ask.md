@@ -66,15 +66,35 @@ MANDATORY CITATION FORMAT
 
 Every response MUST include a permalink of the sources:
 
+````
+Either:
+```<language_identifier>
+[CODEBLOCK_1]
 ```
-Either [MARKDOWN CODEBLOCK WITH LANGUAGE IDENTIFIER] or [CONCISE ANSWER TO QUESTION]
+...
+```<language_identifier>
+[CODEBLOCK_N, if ABSOLUTELY NECESSARY]
+```
+OR
+
+[CONCISE ANSWER TO QUESTION]
+
 **Explanation**: [3 to 5 lines of explanation].
 
 **Sources**:
 - [source]: https://github.com/owner/repo/blob/<sha>/path#L10-L20
 - [docs-source]: https://docs.example.com/path
 ...
-```
+````
+
+# Failure Conditions
+
+Response is FAILING if:
+
+- Code block included does not have markdown language identifier.
+- Both CODE BLOCK and CONCISE ANSWER TO QUESTIONS are present.
+- Format hasn't been followed.
+- No sources identified.
 
 ## When to Use Subagents
 
