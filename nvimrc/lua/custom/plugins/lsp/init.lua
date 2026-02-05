@@ -18,6 +18,8 @@ M.opts = {
     'rust_analyzer',
     'zls',
     'bashls',
+    'vtsls',
+    'eslint',
     'cssls',
     'jsonls',
     'emmet_language_server',
