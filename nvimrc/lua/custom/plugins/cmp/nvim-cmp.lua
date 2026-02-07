@@ -95,7 +95,12 @@ function M.config(_, _opts)
       end
     end, { 'i', 's' }),
   }
+  function opts.enabled()
+    return _G.cmp_enabled
+  end
 
+  -- Enabled by default
+  _G.cmp_enabled = true
   cmp.setup(opts)
 end
 
