@@ -8,7 +8,7 @@ local FileMinis = utils.map_event('BufReadPost', 'BufNewFile')({
 })
 
 local VeryLazyMinis = utils.map_event('VeryLazy')({
-  { 'echasnovski/mini.statusline', opts = {} },
+  require('custom.plugins.mini.statusline'),
 })
 
 return {
