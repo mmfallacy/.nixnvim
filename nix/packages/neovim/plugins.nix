@@ -38,6 +38,7 @@ let
 
   ai = [
     mypkgs.${"99-nvim"}
+    supermaven-nvim
   ];
 
   cmp = [
