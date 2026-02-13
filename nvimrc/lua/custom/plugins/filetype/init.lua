@@ -16,6 +16,9 @@ vim.filetype.add({
   pattern = {
     ['.env.*'] = 'sh',
   },
+  extension = {
+    jsonc = 'json',
+  },
 })
 
 return {
