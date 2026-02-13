@@ -1,7 +1,7 @@
 ---
 description: Breaks down complex user requests into actionable, sequential steps, considering codebase context.
 mode: primary
-model: minimax/MiniMax-M2.1
+model: opencode/minimax-m2.5-free
 temperature: 0.2
 permission:
   read: allow

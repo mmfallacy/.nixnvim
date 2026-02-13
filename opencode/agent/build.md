@@ -1,5 +1,5 @@
 ---
 mode: primary
-model: minimax/MiniMax-M2.1
+model: opencode/minimax-m2.5-free
 temperature: 0.2
 ---

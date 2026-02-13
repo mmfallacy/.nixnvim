@@ -30,6 +30,7 @@
         "big-pickle",
         "kimi-k2.5-free",
         "minimax-m2.1-free",
+        "minimax-m2.5-free",
       ],
     },
   },
@@ -42,7 +43,6 @@
     "external_directory": "deny",
     "lsp": "allow",
   },
-  "model": "minimax/MiniMax-M2.1",
   "lsp": {},
   "mcp": {
     "context7": {

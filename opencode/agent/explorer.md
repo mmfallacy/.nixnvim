@@ -4,7 +4,7 @@ description: |
   "quick" for basic, "medium" for moderate, "comprehensive" for comprehensive analysis. 
   Main goal is to answer questions "What lines does X?", "What files are involved with feature Y?".
 mode: subagent
-model: opencode/minimax-m2.1-free
+model: opencode/minimax-m2.5-free
 temperature: 0.1
 permission:
   edit: deny
