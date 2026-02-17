@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Check if --remote flag is passed
+REMOTE=false
+FORWARD_ARGS=()
+for arg in "$@"; do
+  if [[ "$arg" == "--remote" ]]; then
+    REMOTE=true
+    break
+  else
+    FORWARD_ARGS+=("$args")
+  fi
+done
+
+
+# Check if nix is available
+if ! command -v nix >/dev/null 2>&1; then
+  echo "Error: nix is not installed or not in PATH"
+  exit 1
+fi
+
+FLAKE_SRC="."
+
+if [[ "$REMOTE" == true ]]; then
+  FLAKE_SRC="github:mmfallacy/.nixnvim"
+fi
+
+nix --extra-experimental-features "nix-command flakes" run "$FLAKE_SRC"#neovim "${FORWARD_ARGS[@]:-}"
+
