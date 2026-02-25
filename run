@@ -20,11 +20,11 @@ if ! command -v nix >/dev/null 2>&1; then
   exit 1
 fi
 
-FLAKE_SRC="."
+NIXNVIM_FLAKE_SRC="${NIXNVIM_FLAKE_SRC:-.}"
 
 if [[ "$REMOTE" == true ]]; then
-  FLAKE_SRC="github:mmfallacy/.nixnvim"
+  NIXNVIM_FLAKE_SRC="github:mmfallacy/.nixnvim"
 fi
 
-nix --extra-experimental-features "nix-command flakes" run "$FLAKE_SRC"#neovim "${FORWARD_ARGS[@]:-}"
+nix --extra-experimental-features "nix-command flakes" run "$NIXNVIM_FLAKE_SRC"#neovim "${FORWARD_ARGS[@]:-}"
 
