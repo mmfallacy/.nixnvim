@@ -9,7 +9,7 @@ for arg in "$@"; do
     REMOTE=true
     break
   else
-    FORWARD_ARGS+=("$args")
+    FORWARD_ARGS+=("$arg")
   fi
 done
 
