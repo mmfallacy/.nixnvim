@@ -2,6 +2,9 @@
 return {
   on_attach = function(_, bufnr)
     -- Disable cssls in place of tailwindcss
-    vim.lsp.get_clients({ bufnr = bufnr, name = 'cssls' })[1].stop()
+    local cssls = vim.lsp.get_clients({ bufnr = bufnr, name = 'cssls' })[1]
+    if cssls then
+      cssls:stop()
+    end
   end,
 }
