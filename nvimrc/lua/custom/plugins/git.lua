@@ -19,10 +19,6 @@ local N = {
         kind = 'split_below',
         staged_diff_split_kind = 'vsplit',
       },
-      -- NOTE: Neogit currently doesn't support SSH signing.
-      -- All commits are signed via the git config option `commit.gpgSign = true`
-      -- Do note that signing can still work without gpg being present if `gpg.format = "ssh"`
-      -- commit_view = {verify_commit = nil,},
     }
   end,
 }

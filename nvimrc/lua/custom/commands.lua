@@ -16,3 +16,5 @@ vim.api.nvim_create_autocmd('User', {
     vim.api.nvim_set_hl(0, 'ColorColumn', { bg = palette.base02 })
   end,
 })
+
+vim.api.nvim_create_user_command('Q', 'tabclose', {})
