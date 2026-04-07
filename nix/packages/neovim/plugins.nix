@@ -59,10 +59,10 @@ let
   ];
 
   git = [
-
     neogit
     diffview-nvim
     gitsigns-nvim
+    mypkgs.difftastic-nvim
   ];
 
   scheme = [
@@ -98,6 +98,7 @@ in
     vim-sleuth
     snacks-nvim
     flash-nvim
+    nui-nvim
 
     lualine-nvim
 

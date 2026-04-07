@@ -29,6 +29,9 @@ mnw.lib.wrap pkgs {
 
       websocat # Required by typst-preview-nvim
       lsof # Required by opencode.nvim
+
+      # difftastic 0.68 as difftastic.nvim requires aligned_lines
+      extras.pkgs-unstable.difftastic # Required by difftastic.nvim
     ]
     ++ lsps;
 
