@@ -24,7 +24,7 @@
             pkgs-last = inputs.nixpkgs-last.legacyPackages.${system};
 
             # nil = inputs.nil.packages.${system}.nil;
-            mypkgs.vimPlugins = import ./nix/vimPlugins { inherit pkgs; };
+            mypkgs.vimPlugins = import ./nix/vimPlugins { pkgs = pkgs-unstable; };
 
             aider = pkgs-unstable.aider-chat;
             gemini-cli = pkgs-unstable.gemini-cli;
