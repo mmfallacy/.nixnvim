@@ -37,8 +37,35 @@ local O = {
   },
 }
 
+local P = {
+  'clabby/difftastic.nvim',
+  dependencies = {
+    'MunifTanjim/nui.nvim',
+    'folke/snacks.nvim',
+  },
+  opts = {
+    download = false,
+    snacks_picker = {
+      enabled = true,
+    },
+    vcs = 'git',
+  },
+  config = function(_, opts)
+    require('difftastic-nvim').setup(opts)
+    -- Prevent and disable updating difftastic via the plugin.
+    vim.api.nvim_del_user_command('DifftUpdate')
+  end,
+  cmd = {
+    'Difft',
+    'DifftPick',
+    'DifftPickRange',
+    'DifftClose',
+  },
+}
+
 return {
   M,
   N,
   O,
+  P,
 }
