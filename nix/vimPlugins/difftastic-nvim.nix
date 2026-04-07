@@ -2,9 +2,9 @@
   vimUtils,
   fetchFromGitHub,
   vimPlugins,
+  rustPlatform,
 }:
 let
-
   difftastic = vimUtils.buildVimPlugin {
     pname = "difftastic.nvim";
     version = "0.0.9-unstable-2026-03-14";
@@ -16,6 +16,23 @@ let
     };
     meta.homepage = "https://github.com/clabby/difftastic.nvim/";
     meta.hydraPlatforms = [ ];
+    preInstall = ''
+      mkdir -p target/release
+      ln -s ${difftastic-lib}/lib/* target/release/
+      # Difftastic.nvim expect the shared object doesnt have lib prefix
+      # Precreate link instead of letting difftastic.nvim handle it
+      pushd target/release
+      for f in libdifftastic_nvim.{so,dylib}; do
+        [ -e "$f" ] || continue
+        ln -s "$f" "''${f#lib}"
+      done
+      popd
+    '';
+  };
+  difftastic-lib = rustPlatform.buildRustPackage {
+    inherit (difftastic) version src;
+    pname = "difftastic-lib";
+    cargoHash = "sha256-VSlFlLa4knQ7bH8yFHSKTTtt1cQ76dstlCdWBAtkf1I=";
   };
 in
 difftastic.overrideAttrs {
