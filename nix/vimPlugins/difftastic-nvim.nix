@@ -21,10 +21,11 @@ let
       ln -s ${difftastic-lib}/lib/* target/release/
       # Difftastic.nvim expect the shared object doesnt have lib prefix
       # Precreate link instead of letting difftastic.nvim handle it
+      # Both darwin and linux expect difftastic_nvim.so
       pushd target/release
       for f in libdifftastic_nvim.{so,dylib}; do
         [ -e "$f" ] || continue
-        ln -s "$f" "''${f#lib}"
+        ln -s "$f" "difftastic_nvim.so"
       done
       popd
     '';
