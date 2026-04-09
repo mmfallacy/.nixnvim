@@ -63,6 +63,7 @@ let
     diffview-nvim
     gitsigns-nvim
     mypkgs.difftastic-nvim
+    octo-nvim
   ];
 
   scheme = [

@@ -44,6 +44,8 @@ mkShell {
 
       selfpkgs.serena
 
+      gh
+
       # Lsps
       lua-language-server
       stylua

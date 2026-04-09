@@ -63,9 +63,32 @@ local P = {
   },
 }
 
+local Q = {
+  'pwntester/octo.nvim',
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope.nvim',
+    'nvim-tree/nvim-web-devicons',
+  },
+  opts = {},
+  config = function(_, opts)
+    vim.api.nvim_create_user_command('GP', 'Octo pr list', {})
+    vim.api.nvim_create_user_command('GD', 'Octo discussion list', {})
+    vim.api.nvim_create_user_command('GI', 'Octo issues list', {})
+
+    return require('octo').setup(opts)
+  end,
+  cmd = {
+    'GP',
+    'GD',
+    'GI',
+  },
+}
+
 return {
   M,
   N,
   O,
   P,
+  Q,
 }

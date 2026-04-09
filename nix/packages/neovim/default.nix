@@ -32,6 +32,9 @@ mnw.lib.wrap pkgs {
 
       # difftastic 0.68 as difftastic.nvim requires aligned_lines
       extras.pkgs-unstable.difftastic # Required by difftastic.nvim
+
+      # octo-nvim
+      gh
     ]
     ++ lsps;
 
