@@ -17,4 +17,10 @@ vim.api.nvim_create_autocmd('User', {
   end,
 })
 
-vim.api.nvim_create_user_command('Q', 'tabclose', {})
+vim.api.nvim_create_user_command('Q', function()
+  if vim.fn.tabpagenr('$') > 1 then
+    vim.cmd.tabclose()
+  else
+    vim.cmd.quit()
+  end
+end, {})
