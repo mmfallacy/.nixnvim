@@ -21,9 +21,6 @@ mnw.lib.wrap pkgs {
   extraBinPath =
     with pkgs;
     [
-      xclip
-      wl-clipboard
-
       ripgrep
       fd
 
@@ -35,6 +32,10 @@ mnw.lib.wrap pkgs {
 
       # octo-nvim
       gh
+    ]
+    ++ lib.optionals (pkgs.system != "aarch64-darwin") [
+      xclip
+      wl-clipboard
     ]
     ++ lsps;
 
