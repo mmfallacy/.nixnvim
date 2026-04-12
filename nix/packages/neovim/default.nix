@@ -2,6 +2,8 @@
   pkgs,
   mnw,
   extras,
+  devModeSrc ? "/home/mmfallacy/.nixnvim",
+  ...
 }:
 let
   plugins = import ./plugins.nix { inherit pkgs extras; };
@@ -14,7 +16,7 @@ mnw.lib.wrap pkgs {
   plugins = plugins // {
     dev.nvimrc = {
       pure = ../../../nvimrc;
-      impure = "/home/mmfallacy/.nixnvim/nvimrc";
+      impure = devModeSrc;
     };
   };
 
