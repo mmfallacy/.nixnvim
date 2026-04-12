@@ -2,7 +2,6 @@
   pkgs,
   mnw,
   extras,
-  devModeSrc ? "/home/mmfallacy/.nixnvim",
   ...
 }:
 let
@@ -16,7 +15,7 @@ mnw.lib.wrap pkgs {
   plugins = plugins // {
     dev.nvimrc = {
       pure = ../../../nvimrc;
-      impure = devModeSrc;
+      impure = "/Users/mmfallacy/.nixnvim/nvimrc";
     };
   };
 
