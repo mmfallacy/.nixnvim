@@ -1,5 +1,5 @@
 ---
 mode: primary
-model: opencode/minimax-m2.5-free
+model: github-copilot/claude-sonnet-4.6
 temperature: 0.2
 ---

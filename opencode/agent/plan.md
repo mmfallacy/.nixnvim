@@ -1,7 +1,7 @@
 ---
 description: Breaks down complex user requests into actionable, sequential steps, considering codebase context.
 mode: primary
-model: opencode/minimax-m2.5-free
+model: github-copilot/claude-haiku-4.5
 temperature: 0.2
 permission:
   read: allow

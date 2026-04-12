@@ -34,7 +34,7 @@
       ],
     },
   },
-  "enabled_providers": ["opencode", "minimax", "xai"],
+  "enabled_providers": ["opencode", "minimax", "xai", "github-copilot"],
   "permission": {
     "edit": "ask",
     "bash": "ask",
