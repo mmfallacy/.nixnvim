@@ -58,6 +58,11 @@
       "url": "http://localhost:{env:SERENA_PORT}/mcp",
       "enabled": false,
     },
+    "deepwiki": {
+      "type": "remote",
+      "url": "https://mcp.deepwiki.com/mcp",
+      "enabled": true,
+    },
   },
   "agent": {
     // Use explorer agent instead!
@@ -65,7 +70,5 @@
       "disable": true,
     },
   },
-  "experimental": {
-    "chatMaxRetries": 5,
-  },
+  "experimental": {},
 }
