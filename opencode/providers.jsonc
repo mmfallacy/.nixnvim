@@ -1,44 +1,49 @@
 {
-  "minimax": {
-    "options": {
-      "apiKey": "{env:MINIMAX_API_KEY}",
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "minimax": {
+      "options": {
+        "apiKey": "{env:MINIMAX_API_KEY}",
+      },
+      "models": {
+        "MiniMax-M2.1": {},
+      },
+      "whitelist": ["MiniMax-M2.1"],
     },
-    "models": {
-      "MiniMax-M2.1": {},
+    "xai": {
+      "options": {
+        "apiKey": "{env:GROK_API_KEY}",
+      },
+      "models": {
+        "grok-4-1-fast-non-reasoning": {},
+      },
+      "whitelist": ["grok-4-1-fast-non-reasoning"],
     },
-    "whitelist": ["MiniMax-M2.1"],
-  },
-  "xai": {
-    "options": {
-      "apiKey": "{env:GROK_API_KEY}",
+    "opencode": {
+      "options": {
+        "apiKey": "{env:OPENCODE_ZEN_API_KEY}",
+      },
+      "whitelist": [
+        "glm-4.7-free",
+        "big-pickle",
+        "kimi-k2.5-free",
+        "minimax-m2.1-free",
+        "minimax-m2.5-free",
+      ],
     },
-    "models": {
-      "grok-4-1-fast-non-reasoning": {},
-    },
-    "whitelist": ["grok-4-1-fast-non-reasoning"],
-  },
-  "opencode": {
-    "options": {
-      "apiKey": "{env:OPENCODE_ZEN_API_KEY}",
-    },
-    "whitelist": [
-      "glm-4.7-free",
-      "big-pickle",
-      "kimi-k2.5-free",
-      "minimax-m2.1-free",
-      "minimax-m2.5-free",
-    ],
-  },
-  "custom-proxy": {
-    "npm": "@ai-sdk/openai-compatible",
-    "name": "Custom Proxy (local)",
-    "options": {
-      "baseURL": "http://localhost:3000/v1",
-    },
-    "models": {
-      "gpt-5-nano": {
-        "name": "GPT 5 Nano",
+    "custom-proxy": {
+      "npm": "@ai-sdk/openai",
+      "name": "Custom Proxy (local)",
+      "options": {
+        "baseURL": "http://localhost:3000/v1",
+        "apiKey": "no need",
+      },
+      "models": {
+        "gpt-5-nano": {
+          "name": "GPT 5 Nano",
+        },
       },
     },
   },
+  "enabled_providers": ["opencode", "minimax", "xai", "custom-proxy"],
 }

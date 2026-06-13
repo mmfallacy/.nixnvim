@@ -2,8 +2,6 @@
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": "notify",
   "default_agent": "ask",
-  "enabled_providers": ["opencode", "minimax", "xai", "custom-proxy"],
-  "provider": "{file:./providers.jsonc}",
   "permission": {
     "edit": "ask",
     "bash": "ask",
@@ -13,7 +11,6 @@
     "lsp": "allow",
   },
   "lsp": {},
-  "mcp": "{file:./mcp.jsonc}",
   "agent": {
     // Use explorer agent instead!
     "explore": {
