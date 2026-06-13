@@ -43,6 +43,7 @@ mkShell {
       ocdv
 
       selfpkgs.serena
+      bun
 
       gh
 
