@@ -30,11 +30,14 @@ function trigger() {
   timer = setTimeout(build, DEBOUNCE_MS);
 }
 
+function watch() {
+  for (const file of files) {
+    fs.watch(file, () => trigger());
+  }
+  console.log(`Watching: ${files.join(",")}`);
+}
+
 // Build once on script run
 await build();
 
-for (const file of files) {
-  fs.watch(file, () => trigger());
-}
-
-console.log(`Watching: ${files.join(",")}`);
+if (process.argv.includes("--watch") || process.argv.includes("-w")) watch();
