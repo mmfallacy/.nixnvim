@@ -28,8 +28,10 @@
 
             aider = pkgs-unstable.aider-chat;
             gemini-cli = pkgs-unstable.gemini-cli;
-            opencode = pkgs-master.callPackage ./nix/packages/opencode.nix { };
-            serena = inputs.serena.packages.${system}.serena;
+            opencode = pkgs-master.callPackage ./nix/packages/opencode.nix {
+              runtimeDeps = [ codebase-memory-mcp ];
+            };
+            codebase-memory-mcp = inputs.codebase-memory-mcp.packages.${system}.default;
           };
         in
         rec {
@@ -48,7 +50,7 @@
             gemini-cli = extras.gemini-cli;
             kulala-fmt = pkgs.callPackage ./nix/packages/kulala-fmt { };
             opencode = extras.opencode;
-            serena = extras.serena;
+            codebase-memory-mcp = extras.codebase-memory-mcp;
           };
         }
       ) (import systems);
@@ -65,11 +67,10 @@
     systems.url = "github:nix-systems/default";
     mnw.url = "github:Gerg-L/mnw";
 
-    serena = {
-      url = "github:oraios/serena";
+    codebase-memory-mcp = {
+      url = "github:DeusData/codebase-memory-mcp";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    # nil.url = "github:oxalica/nil";
   };
 
 }
