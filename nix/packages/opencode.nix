@@ -6,10 +6,12 @@
   wrapperArgs ? [ ],
   # Mock XDG_CONFIG_HOME to allow opencode to use ../../opencode as global overridable configuration.
   xdgConfig ? "${placeholder "out"}/share",
+  runtimeDeps ? [ ],
 }:
 stdenvNoCC.mkDerivation rec {
   name = "opencode-wrapped";
   buildInputs = [ makeWrapper ];
+  propagatedBuildInputs = runtimeDeps;
 
   src = ../../opencode;
 

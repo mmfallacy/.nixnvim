@@ -42,7 +42,7 @@ mkShell {
       mnwcd
       ocdv
 
-      selfpkgs.codebase-memory-mcp
+      # selfpkgs.codebase-memory-mcp
       bun
 
       gh
