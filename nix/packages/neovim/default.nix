@@ -15,7 +15,11 @@ mnw.lib.wrap pkgs {
   plugins = plugins // {
     dev.nvimrc = {
       pure = ../../../nvimrc;
-      impure = "/Users/mmfallacy/.nixnvim/nvimrc";
+      impure =
+        if pkgs.stdenv.hostPlatform.isDarwin then
+          "/Users/mmfallacy/.nixnvim/nvimrc"
+        else
+          "/home/mmfallacy/.nixnvim/nvimrc";
     };
   };
 
