@@ -62,7 +62,7 @@ let
     neogit
     diffview-nvim
     gitsigns-nvim
-    mypkgs.difftastic-nvim
+    # mypkgs.difftastic-nvim
     octo-nvim
   ];
 
