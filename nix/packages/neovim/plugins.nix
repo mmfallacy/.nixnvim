@@ -59,7 +59,7 @@ let
   ];
 
   git = [
-    neogit
+    unstable.neogit
     diffview-nvim
     gitsigns-nvim
     # mypkgs.difftastic-nvim
