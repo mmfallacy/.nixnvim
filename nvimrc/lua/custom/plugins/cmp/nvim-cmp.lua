@@ -98,10 +98,12 @@ function M.config(_, _opts)
   function opts.enabled()
     return _G.cmp_enabled
   end
-
   -- Enabled by default
   _G.cmp_enabled = true
   cmp.setup(opts)
+  cmp.setup.filetype('TelescopePrompt', {
+    enabled = false,
+  })
 end
 
 return M
