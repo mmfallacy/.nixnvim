@@ -14,6 +14,8 @@ local N = {
   opts = function()
     -- Create :Git alias for :Neogit
     vim.api.nvim_create_user_command('G', 'Neogit', {})
+    vim.api.nvim_set_hl(0, 'NeogitDiffDeleteInline', { bg = '#f38ba8', fg = '#1e1e2e', bold = true })
+
     return {
       commit_editor = {
         kind = 'split_below',
