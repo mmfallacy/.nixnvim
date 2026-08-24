@@ -96,7 +96,7 @@ function M.config(_, _opts)
     end, { 'i', 's' }),
   }
   function opts.enabled()
-    return _G.cmp_enabled
+    return _G.cmp_enabled and vim.b.completion
   end
   -- Enabled by default
   _G.cmp_enabled = true
