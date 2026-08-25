@@ -33,7 +33,7 @@ M.opts = {
   formatters = {},
 }
 
-M.opts.formatters_by_ft.typescript = { 'biome_from_path', 'prettierd', 'prettier', stop_after_first = true }
+M.opts.formatters_by_ft.typescript = { 'oxfmt', 'biome_from_path', 'prettierd', 'prettier', stop_after_first = true }
 
 M.opts.formatters_by_ft.typescriptreact = M.opts.formatters_by_ft.typescript
 M.opts.formatters_by_ft.svelte = M.opts.formatters_by_ft.typescript
