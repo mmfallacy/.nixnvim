@@ -31,10 +31,7 @@
 
             aider = pkgs-unstable.aider-chat;
             gemini-cli = pkgs-unstable.gemini-cli;
-            opencode = pkgs-master.callPackage ./nix/packages/opencode.nix {
-              runtimeDeps = [ codebase-memory-mcp ];
-            };
-            codebase-memory-mcp = inputs.codebase-memory-mcp.packages.${system}.default;
+            opencode = pkgs-master.callPackage ./nix/packages/opencode.nix { };
           };
         in
         rec {
@@ -53,7 +50,6 @@
             gemini-cli = extras.gemini-cli;
             kulala-fmt = pkgs.callPackage ./nix/packages/kulala-fmt { };
             opencode = extras.opencode;
-            codebase-memory-mcp = extras.codebase-memory-mcp;
           };
         }
       ) (import systems);
@@ -69,11 +65,6 @@
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     systems.url = "github:nix-systems/default";
     mnw.url = "github:Gerg-L/mnw";
-
-    codebase-memory-mcp = {
-      url = "github:DeusData/codebase-memory-mcp";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
   };
 
 }
