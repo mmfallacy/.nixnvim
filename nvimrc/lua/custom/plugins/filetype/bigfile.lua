@@ -17,11 +17,8 @@ return {
           vim.opt_local.wrap = false
 
           vim.b[ctx.buf].bigfile = true
-          vim.b[ctx.buf].completion = false
-          vim.b[ctx.buf].minianimate_disable = true
-          vim.b[ctx.buf].minihipatterns_disable = true
+          vim.b[ctx.buf].completion_disable = true
 
-          vim.b[ctx.buf].gitsigns_disable = true
           vim.diagnostic.enable(false, { bufnr = ctx.buf })
         end,
       },
