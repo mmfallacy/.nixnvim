@@ -72,9 +72,21 @@ local ensure_installed = {
 
 -- This function checks if ensure_installed matches the available parsers. If not, it warns the user.
 local function check_parsers()
-  local utils = require('nvim-treesitter.utils')
-  local parsers = require('nvim-treesitter.info').installed_parsers()
-  local diff = utils.difference(ensure_installed, parsers)
+  -- form set of installed parsers
+  local installed = vim.iter(vim.api.nvim_get_runtime_file('parser/*.so', true)):fold({}, function(set, path)
+    local parser = vim.fn.fnamemodify(path, ':t:r')
+    set[parser] = true
+    return set
+  end)
+
+  -- calculate and notify diff of ensured_installed
+  local diff = vim
+    .iter(ensure_installed)
+    :filter(function(parser)
+      return not installed[parser]
+    end)
+    :totable()
+
   if #diff > 0 then
     vim.notify_once(
       'ensured_installed parsers not met. ' .. vim.inspect(diff) .. ' are missing!',
@@ -85,12 +97,14 @@ local function check_parsers()
 end
 
 function M.config(_, opts)
-  require('nvim-treesitter.configs').setup(opts)
+  require('nvim-treesitter').setup(opts)
   check_parsers()
 
   vim.api.nvim_create_autocmd({ 'FileType' }, {
     callback = function()
-      if require('nvim-treesitter.parsers').has_parser() then
+      local lang = vim.treesitter.language.get_lang(vim.bo.filetype)
+      local has_parser = vim.treesitter.language.add(lang or vim.bo.filetype)
+      if has_parser then
         vim.opt.foldmethod = 'expr'
         vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
       else
