@@ -23,7 +23,7 @@ with pkgs;
   unstable.harper # Grammar checker required by nvim-lspconfig:harper_ls (0.56.0)
 
   # Typescript
-  nodePackages.prettier
+  prettier
 
   # Bash
   shfmt
