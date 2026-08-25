@@ -16,7 +16,10 @@
       mapped = builtins.map (
         system:
         let
-          pkgs = nixpkgs-stable.legacyPackages.${system};
+          pkgs = import nixpkgs-stable {
+            inherit system;
+            config.allowUnfree = true;
+          };
 
           extras = rec {
             pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
