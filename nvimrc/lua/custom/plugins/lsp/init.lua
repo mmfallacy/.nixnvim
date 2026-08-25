@@ -34,6 +34,30 @@ M.opts = {
   },
 }
 
+function get_lsp_config(server)
+  local paths = vim.api.nvim_get_runtime_file(('lsp/%s.lua'):format(server), true)
+  return vim
+    .iter(paths)
+    :rev()
+    :map(function(file)
+      -- propagate failure
+      return assert(loadfile(file))()
+    end)
+    :fold({}, function(acc, frag)
+      return vim.tbl_deep_extend('force', acc, frag)
+    end)
+end
+
+function lsp_can_start(config)
+  if type(config.cmd) == 'string' then
+    return vim.fn.executable(config.cmd) == 1
+  elseif type(config.cmd) == 'table' then
+    return vim.fn.executable(config.cmd[1]) == 1
+  elseif type(config.cmd) == 'function' then
+    return pcall(config.cmd)
+  end
+end
+
 M.config =
   ---@param opts Opts
   function(_, opts)
@@ -45,11 +69,18 @@ M.config =
     })
 
     for _, server in ipairs(opts.enabled) do
-      if vim.fn.executable(vim.lsp.config[server].cmd[1]) == 1 then
+      local ok, config = pcall(get_lsp_config, server)
+
+      if not ok then
+        vim.notify('cannot get config for server ' .. server .. ':' .. config, vim.log.levels.ERROR)
+        goto continue
+      end
+
+      if lsp_can_start(config) then
         table.insert(installed, server)
         vim.lsp.enable(server)
-      else
       end
+      ::continue::
     end
     vim.notify_once(vim.inspect(installed), vim.log.levels.INFO, { title = 'LSPs found and configured' })
   end
