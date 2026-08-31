@@ -32,6 +32,9 @@
             aider = pkgs-unstable.aider-chat;
             gemini-cli = pkgs-unstable.gemini-cli;
             opencode = pkgs-master.callPackage ./nix/packages/opencode.nix { };
+            ocdv = pkgs-master.callPackage ./nix/packages/opencode.nix {
+              xdgConfig = "/Users/mmfallacy/.nixnvim/";
+            };
           };
         in
         rec {
@@ -50,6 +53,7 @@
             gemini-cli = extras.gemini-cli;
             kulala-fmt = pkgs.callPackage ./nix/packages/kulala-fmt { };
             opencode = extras.opencode;
+            ocdv = extras.ocdv;
           };
         }
       ) (import systems);
