@@ -1,0 +1,3 @@
+[submodule "opencode/vendor/bastidood-skills"]
+	path = opencode/vendor/bastidood-skills
+	url = https://github.com/BastiDood/skills

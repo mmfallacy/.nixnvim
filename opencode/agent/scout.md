@@ -1,7 +1,7 @@
 ---
 description: Specialized agent for understanding codebases, documentations, libraries, and other external sources. Uses websearch tool and Context7 LSP. MUST BE USED when user asks to fetch remote codebases, official documentation, implementation examples.
 mode: subagent
-model: github-copilot/grok-code-fast-1
+model: github-copilot/gpt-5.4-mini
 temperature: 0.1
 tools:
   bash: true

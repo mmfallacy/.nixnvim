@@ -4,7 +4,7 @@ description: |
   "quick" for basic, "medium" for moderate, "comprehensive" for comprehensive analysis. 
   Main goal is to answer questions "What lines does X?", "What files are involved with feature Y?".
 mode: subagent
-model: github-copilot/grok-code-fast-1
+model: github-copilot/gpt-5.4-mini
 temperature: 0.1
 permission:
   edit: deny
