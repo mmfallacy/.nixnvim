@@ -31,6 +31,7 @@ M.opts = {
     'gopls',
     'svelte',
     'postgres_lsp',
+    'pyright',
   },
 }
 
