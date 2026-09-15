@@ -63,9 +63,9 @@
     } mapped;
 
   inputs = {
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
-    nixpkgs-last.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
+    nixpkgs-last.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
+    nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     systems.url = "github:nix-systems/default";
     mnw.url = "github:Gerg-L/mnw";
