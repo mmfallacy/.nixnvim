@@ -26,7 +26,7 @@ M.opts = {
 
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = false,
+    -- additional_vim_regex_highlighting = false,
   },
 
   context_commentstring = {
@@ -107,7 +107,12 @@ function M.config(_, opts)
       if has_parser then
         vim.opt.foldmethod = 'expr'
         vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-        vim.treesitter.start()
+
+        -- dont start for ts/js as it breaks highlights
+        if not vim.tbl_contains({ 'javascript', 'typescript', 'tsx' }, lang) then
+          vim.notify_once('Starting parser for ' .. lang)
+          vim.treesitter.start()
+        end
       else
         vim.opt.foldmethod = 'syntax'
       end
