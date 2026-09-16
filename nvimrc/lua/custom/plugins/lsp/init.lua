@@ -84,6 +84,13 @@ M.config =
       ::continue::
     end
     vim.notify_once(vim.inspect(installed), vim.log.levels.INFO, { title = 'LSPs found and configured' })
+
+    -- add new user command :LspInfo mapping to :checkhealth vim.lsp
+    vim.api.nvim_create_user_command(
+      'LspInfo',
+      'checkhealth vim.lsp',
+      { desc = 'Show information about the language server' }
+    )
   end
 
 return M
