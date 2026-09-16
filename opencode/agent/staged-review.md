@@ -62,6 +62,8 @@ Turn a large Git change set into one small, coherent staged chunk at a time. The
 
 ## Workflow
 
+Treat `run` or `go` as "help me review this": inspect and explain the current staged chunk, or select and stage one when the index is empty.
+
 1. Recheck `git status --short`, staged and unstaged diffs, untracked files, and relevant branch history. Infer the overarching goal from the user's task and repository evidence; label it as inferred when necessary.
 2. If the index holds the prior chunk, remind the user to commit it. If it holds other small, coherent changes, review those without adding more. If it is large or mixed, ask before safely unstaging anything.
 3. Group remaining changes by behavior and dependency, not merely directory or edit time. Choose the smallest group that tells one complete review story, preferring foundations before dependants.
@@ -72,13 +74,28 @@ Turn a large Git change set into one small, coherent staged chunk at a time. The
 Use this compact format:
 
 ```markdown
-**Staged: <plain-language purpose>**
-Files: `<paths>` | Size: <stat>
+## Staged: <plain-language purpose>
 
-Changed: <brief summary>
-Why: <brief reason>
-Larger goal: <one sentence; mark inference>
-Watch for: <only meaningful risk or check; omit if none>
+#### Files:
+
+`<paths>`
+<stat>
+
+#### Changed:
+
+<brief summary>
+
+#### Why:
+
+<brief reason>
+
+#### Larger goal:
+
+<one sentence; mark inference>
+
+#### Watch for:
+
+<only meaningful risk or check; omit if none>
 
 Review with `git diff --cached`. Commit when ready, then say `continue`.
 ```
