@@ -1,7 +1,7 @@
 ---
 description: Breaks down complex user requests into actionable, sequential steps, considering codebase context.
 mode: primary
-model: github-copilot/claude-haiku-4.5
+model: openai/gpt-5.6-sol
 temperature: 0.2
 permission:
   read: allow

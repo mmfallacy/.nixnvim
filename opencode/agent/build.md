@@ -1,5 +1,5 @@
 ---
 mode: primary
-model: github-copilot/claude-sonnet-4.6
+model: openai/gpt-5.6-sol
 temperature: 0.2
 ---

@@ -1,6 +1,6 @@
 ---
 mode: primary
-model: xai/grok-4-1-fast-non-reasoning
+model: openai/gpt-5.6-sol
 temperature: 0.1
 effort: low
 thinking:

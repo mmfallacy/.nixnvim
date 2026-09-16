@@ -1,7 +1,7 @@
 ---
 description: Provides senior developer-level code review on current changes and related code, focusing on actionable, pedagogical feedback.
 mode: primary
-model: google/gemini-2.5-flash
+model: openai/gpt-5.6-sol
 temperature: 0.2
 tools:
   read: true
