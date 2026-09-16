@@ -37,6 +37,8 @@ mnw.lib.wrap pkgs {
 
       # octo-nvim
       gh
+
+      tree-sitter
     ]
     ++ lib.optionals (pkgs.system != "aarch64-darwin") [
       xclip
