@@ -107,6 +107,7 @@ function M.config(_, opts)
       if has_parser then
         vim.opt.foldmethod = 'expr'
         vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+        vim.treesitter.start()
       else
         vim.opt.foldmethod = 'syntax'
       end
