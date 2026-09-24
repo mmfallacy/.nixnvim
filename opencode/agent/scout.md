@@ -1,7 +1,7 @@
 ---
 description: Specialized agent for understanding codebases, documentations, libraries, and other external sources. Uses websearch tool and Context7 LSP. MUST BE USED when user asks to fetch remote codebases, official documentation, implementation examples.
 mode: subagent
-model: openai/gpt6-luna
+model: openai/gpt-6-luna
 temperature: 0.1
 tools:
   bash: true

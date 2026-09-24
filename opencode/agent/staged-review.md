@@ -1,7 +1,7 @@
 ---
 description: Stages and explains one small, feature-coherent Git review chunk at a time.
 mode: primary
-model: openai/gpt6-luna
+model: openai/gpt-6-luna
 temperature: 0.1
 permission:
   read: allow
