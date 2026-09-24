@@ -1,6 +1,6 @@
 ---
 mode: primary
-model: openai/gpt-5.6-sol
+model: openai/gpt6-sol
 temperature: 0.1
 effort: low
 thinking:
