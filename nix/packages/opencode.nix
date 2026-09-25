@@ -31,4 +31,6 @@ stdenvNoCC.mkDerivation rec {
 
     runHook postInstall
   '';
+
+  dontCheckForBrokenSymlinks = true;
 }
