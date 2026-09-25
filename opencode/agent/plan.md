@@ -2,6 +2,7 @@
 description: Breaks down complex user requests into actionable, sequential steps, considering codebase context.
 mode: primary
 model: openai/gpt-6-sol
+variant: medium
 temperature: 0.2
 permission:
   read: allow
