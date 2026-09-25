@@ -58,7 +58,7 @@ Treat `run` or `go` as a request to review the current index, or to prepare one 
 
 1. Run `git status --short`. If the index is non-empty, inspect and explain only the staged diff, then stop. If regrouping is needed, ask the user to unstage it.
 2. With an empty index, identify the intended change from the user's request and the changed-path inventory. Inspect only enough diff and surrounding code to separate intended files from known exclusions and to understand feature boundaries.
-3. Build a commit sequence using the grouping and ordering rules. Each group must be coherent, independently valid, and depend only on earlier groups. Identify any files requiring hunk splits in the plan.
+3. Build a commit sequence using the grouping and ordering rules. Each group must be coherent, independently valid, and depend only on earlier groups. Identify any files requiring hunk splits in the plan. For every proposed group, report lines added and deleted per file from the exact changes intended for that group, not the full file diff when staging only selected hunks.
 4. If multiple groups exist and no sequence was approved, show the compact plan below and wait. If intent or ownership is unclear, ask one focused question.
 5. Record the exact remaining intended paths and one fingerprint. With no untracked target files, use:
 
@@ -85,9 +85,11 @@ Use recent history only when needed to infer intent, ordering, or whether the pr
 ```markdown
 ## Proposed sequence
 
-1. <purpose> - `<paths>`
-   Why here: <dependency or causal reason>
-   Tests: <paths or none>
+- <purpose>
+  - `<path>`: +<lines added> / -<lines deleted> (partial, if staging selected hunks)
+  - `<path>`: +<lines added> / -<lines deleted>
+  - **Why here:** <dependency or causal reason>
+  - **Tests:** <paths or none>
 
 Approve the sequence and I will stage the first group.
 ```
@@ -97,12 +99,12 @@ Approve the sequence and I will stage the first group.
 ```markdown
 ## Staged: <purpose>
 
-Files: `<paths>` (<diff stat>)
-Why together: <one short sentence>
-Depends on: <earlier commit, or omit>
-Remaining: <next group or none>; fingerprint `<hash>`
-Verify: `<focused command>`
-Risk: <concrete risk; omit when none>
+**Files:** `<paths>` (<diff stat>)
+**Why together:** <one short sentence>
+**Depends on:** <earlier commit, or omit>
+**Remaining:** <next group or none>; fingerprint `<hash>`
+**Verify:** `<focused command>`
+**Risk:** <concrete risk; omit when none>
 
 Review with `git diff --cached`. Commit when ready, then say `continue`.
 ```
