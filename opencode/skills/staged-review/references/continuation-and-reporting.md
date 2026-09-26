@@ -2,7 +2,7 @@
 
 When the index is already staged on arrival, inspect the cached diff and explain its behavior, tests, and concrete risks; stop without adding or regrouping. For a newly staged group, report its purpose, exact staged paths/slice, why it belongs together, and what comes next. Keep it brief, grounded in the cached diff, and invite the user to review and commit before continuing.
 
-On `continue` or `next`, verify the prior group was committed and the index is empty (`git status --short`, and recent `git log`/`git show` when needed). If it was not committed, or a different index is staged, explain and stop. Compare remaining intended paths and changes with the approved sequence, including unstaged hunks left in a split file; ignore known exclusions. If remaining work changed, inspect the affected diffs and revise the plan. Request approval again only if scope or order changed; otherwise proceed with the next approved group using the relevant decision reference.
+On `continue` or `next`, verify the prior group was committed and the index is empty (`git status --short`, and recent `git log`/`git show` when needed). If it was not committed, or a different index is staged, explain and stop. Compare remaining intended paths and changes with the approved sequence, including unstaged changes in files previously split by a patch; ignore known exclusions. If remaining work changed, inspect the affected diffs and revise the plan. Request approval again only if scope or order changed; otherwise proceed with the next approved group using the relevant decision reference.
 
 Use a path set plus a content fingerprint only when there is a real continuity need (for example, a long pause or ambiguous changes), not as routine output or a substitute for inspecting changed work. Avoid broad checks. Stop after one staged group.
 
@@ -15,9 +15,9 @@ Use after staging, or to explain a pre-existing index (without claiming to have 
 
 **Staged paths**
 - Feature-related:
-  - `<path>`: +<added> / -<deleted> (selected hunks, if applicable)
+  - `<path>`: +<added> / -<deleted> (partial, if applicable)
 - Tests:
-  - `<path>`: +<added> / -<deleted> (selected hunks, if applicable)
+  - `<path>`: +<added> / -<deleted> (partial, if applicable)
 
 **Suggested message:** `<imperative commit subject>`
 

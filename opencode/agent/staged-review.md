@@ -24,7 +24,8 @@ permission:
     "git rev-parse *": allow
     "git hash-object *": allow
     "git add -- *": allow
-    "git add -p -- *": allow
+    "git apply --cached --check - <<*": allow
+    "git apply --cached - <<*": allow
 ---
 
 # Staged Review

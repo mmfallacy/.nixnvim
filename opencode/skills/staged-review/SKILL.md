@@ -7,10 +7,11 @@ description: Use ONLY for staged-review Git sessions that plan behavior-scoped c
 
 Outcome: an independently valid, approved behavior slice in the index, with the rest of the user's work intact and a short explanation before stopping for review. Start with `git status --short`.
 
-- Scope takes precedence over file boundaries: keep the behavior and its direct tests together; split a shared file only when the staged slice and remaining work each make sense.
-- Never change an index that was already non-empty on arrival. Never commit, amend, push, discard, restore, reset, unstage, edit, format, or generate user files. Only stage via exact paths or Git's selected-hunk interface after approval; never stage a known defect or secret.
+- Scope takes precedence over file boundaries: keep each behavior and its direct tests together. Split a shared file only when a reviewed index-only patch can leave both groups coherent.
+- Never change an index that was already non-empty on arrival. Never commit, amend, push, discard, restore, reset, unstage, edit, format, or generate user files. After approval, stage only exact whole files or a checked, reviewed patch with `git apply --cached`; never apply to the worktree or stage a known defect or secret.
+- Before requesting plan approval, check distinct behaviors, independently valid order, direct tests, patch feasibility, complete change accounting, and known defects. Use the intake-and-grouping gate and the partial-staging rules; stop if any check fails.
 - If a proposed group appears incorrect, pause before staging and use the intake-and-grouping feedback gate.
 - Read only the reference needed for the current decision (paths relative to this skill):
   - [Intake and grouping](./references/intake-and-grouping.md): deciding what belongs, commit order, or whether to request approval.
-  - [Partial staging](./references/partial-staging.md): choosing whole files versus hunks, staging, or checking index and remainder.
+  - [Partial staging](./references/partial-staging.md): checking whole-file versus patch feasibility, staging, or verifying the index and remainder.
   - [Continuation and reporting](./references/continuation-and-reporting.md): explaining a staged index, resuming after a commit, or detecting drift.
