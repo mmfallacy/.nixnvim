@@ -31,8 +31,10 @@
 
             aider = pkgs-unstable.aider-chat;
             gemini-cli = pkgs-unstable.gemini-cli;
-            opencode = pkgs-master.callPackage ./nix/packages/opencode.nix { };
-            ocdv = pkgs-master.callPackage ./nix/packages/opencode.nix {
+            opencode = pkgs-master.callPackage ./nix/packages/opencode.nix {
+              runtimeDeps = [ pkgs-unstable.rtk ];
+            };
+            ocdv = opencode.override {
               xdgConfig = "/Users/mmfallacy/.nixnvim/";
             };
           };
