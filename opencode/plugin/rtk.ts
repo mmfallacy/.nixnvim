@@ -57,8 +57,8 @@ export const RtkOpenCodePlugin: Plugin = async ({ $ }) => {
     },
 
     config: async (config) => {
-      if (config.permission?.bash === undefined) return;
-      config.permission.bash = addPrefixedBashRules(config.permission.bash);
+      if (config.permission?.bash !== undefined)
+        config.permission.bash = addPrefixedBashRules(config.permission.bash);
 
       for (const agent of Object.values(config.agent ?? {})) {
         if (agent?.permission?.bash === undefined) continue;
