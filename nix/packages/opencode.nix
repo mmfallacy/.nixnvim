@@ -1,5 +1,6 @@
 {
   opencode,
+  claude-code,
   stdenvNoCC,
   symlinkJoin,
   makeWrapper,
@@ -38,10 +39,12 @@ let
   };
 in
 symlinkJoin {
-  name = "opencode-with-rtk";
+  name = "opencode";
 
   paths = [
     opencode-wrapped
+    # for claude-specific models
+    claude-code
   ]
   ++ runtimeDeps;
 }
