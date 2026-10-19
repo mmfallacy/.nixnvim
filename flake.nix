@@ -16,15 +16,17 @@
       mapped = builtins.map (
         system:
         let
-          pkgs = import nixpkgs-stable {
+          default = {
             inherit system;
             config.allowUnfree = true;
           };
 
+          pkgs = import nixpkgs-stable default;
+
           extras = rec {
-            pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
-            pkgs-master = inputs.nixpkgs-master.legacyPackages.${system};
-            pkgs-last = inputs.nixpkgs-last.legacyPackages.${system};
+            pkgs-unstable = import inputs.nixpkgs-unstable default;
+            pkgs-master = import inputs.nixpkgs-master default;
+            pkgs-last = import inputs.nixpkgs-last default;
 
             # nil = inputs.nil.packages.${system}.nil;
             mypkgs.vimPlugins = import ./nix/vimPlugins { pkgs = pkgs-unstable; };
