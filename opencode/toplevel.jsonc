@@ -18,4 +18,5 @@
     },
   },
   "experimental": {},
+  "plugin": ["@openchamber/opencode-claude@0.14"],
 }
