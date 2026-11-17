@@ -18,5 +18,10 @@
     },
   },
   "experimental": {},
-  "plugin": ["@openchamber/opencode-claude@0.14"],
+  "plugins": [
+    "./plugins/auto-allow",
+    "./plugins/rtk",
+    "./plugins/shellhook",
+    "./plugins/skill-references",
+  ],
 }
