@@ -1,7 +1,7 @@
 ---
 description: Provides senior developer-level code review on current changes and related code, focusing on actionable, pedagogical feedback.
 mode: primary
-model: openai/gpt-6-sol
+model: openai/gpt-6.1-sol
 variant: medium
 temperature: 0.2
 tools:
