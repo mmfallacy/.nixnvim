@@ -4,7 +4,7 @@ description: |
   "quick" for basic, "medium" for moderate, "comprehensive" for comprehensive analysis. 
   Main goal is to answer questions "What lines does X?", "What files are involved with feature Y?".
 mode: subagent
-model: openai/gpt-6.1-luna
+model: openai/gpt-6-luna
 variant: medium
 temperature: 0.1
 permission:

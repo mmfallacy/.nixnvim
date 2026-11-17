@@ -30,11 +30,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1792428819,
-        "narHash": "sha256-YG6bsotToXjFFMAPzEbNA4hMDQvU3MFUyJw1BhEKkmA=",
+        "lastModified": 1794899856,
+        "narHash": "sha256-xfe9OE0y5mWchhlk+VMjjuLAfaph6Z6SnRpCaJhtg3Y=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "6865ebc0022b10014425935045b25592b7a587be",
+        "rev": "ec8911ed2b803193a1445fc67586b0ef1fd755ea",
         "type": "github"
       },
       "original": {
@@ -59,11 +59,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1792094642,
-        "narHash": "sha256-LPFRbrCWWyNsdQLO3SX1B/5UMkFK0hfe7bZR6lENvpc=",
-        "rev": "fe13242281a67641c0102cdb1087f0ebe586c7df",
+        "lastModified": 1794537146,
+        "narHash": "sha256-bTKSclXJAmo9qdxPedTBHUGr8awPr4BrbOoOutJsYIc=",
+        "rev": "d5cc6833999746cffdfe0598f7bc801a57b887a9",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1093333.fe13242281a6/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1119549.d5cc68339997/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
