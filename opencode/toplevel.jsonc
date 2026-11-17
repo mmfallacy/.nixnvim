@@ -19,7 +19,7 @@
   },
   "experimental": {},
   "plugins": [
-    "./plugins/auto-allow",
+    "./plugins/yolo",
     "./plugins/rtk",
     "./plugins/shellhook",
     "./plugins/skill-references",
