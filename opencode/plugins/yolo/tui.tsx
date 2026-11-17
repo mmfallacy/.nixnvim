@@ -1,8 +1,11 @@
 import { Plugin } from "@opencode/plugin/tui";
+import command from "./command";
 
 export default Plugin.define({
   id: "yolo",
-  setup(ctx) {
+  async setup(ctx) {
+    await command.setup(ctx);
+
     return ctx.ui.slot({
       append: "prompt.footer.status",
       render: (props) => {
