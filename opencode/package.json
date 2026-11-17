@@ -4,7 +4,7 @@
     "merge": "bun run merge.ts"
   },
   "dependencies": {
-    "@opencode-ai/plugin": "1.18.31",
+    "@opencode/plugin": "2.3.0",
     "jsonc-parser": "^3.3.1"
   }
 }

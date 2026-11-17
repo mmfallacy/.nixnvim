@@ -45,5 +45,5 @@
       },
     },
   },
-  "enabled_providers": ["opencode", "minimax", "xai", "custom-proxy"],
+  "enabled_providers": ["opencode", "minimax", "xai", "custom-proxy", "openai"],
 }
